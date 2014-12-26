@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nmct.ba.cashlessproject.api", "nmct.ba.cashlessproject.api\nmct.ba.cashlessproject.api.csproj", "{076DCFF2-CC97-44EC-9F5C-CE5FDC9CE5DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nmct.ba.cashlessproject.model", "nmct.ba.cashlessproject.model2\nmct.ba.cashlessproject.model.csproj", "{BA1E93C5-6FD2-4A1E-BDB3-E4E634CAB063}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nmct.ba.cashlessproject.UImanagement", "nmct.ba.cashlessproject.UImanagement\nmct.ba.cashlessproject.UImanagement.csproj", "{3FDCA390-CEC0-4BD4-9166-BCAC5B503746}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nmct.ba.cashlessproject.UIklant", "nmct.ba.cashlessproject.UIklant\nmct.ba.cashlessproject.UIklant.csproj", "{ABA8EB13-2A22-4E11-B76F-66CF4E572A8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nmct.ba.cashlessproject.UIkassa", "nmct.ba.cashlessproject.UIkassa\nmct.ba.cashlessproject.UIkassa.csproj", "{120EA342-CA49-449C-AE4E-3A97E2BBCBD3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{076DCFF2-CC97-44EC-9F5C-CE5FDC9CE5DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{076DCFF2-CC97-44EC-9F5C-CE5FDC9CE5DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{076DCFF2-CC97-44EC-9F5C-CE5FDC9CE5DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{076DCFF2-CC97-44EC-9F5C-CE5FDC9CE5DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA1E93C5-6FD2-4A1E-BDB3-E4E634CAB063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA1E93C5-6FD2-4A1E-BDB3-E4E634CAB063}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA1E93C5-6FD2-4A1E-BDB3-E4E634CAB063}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA1E93C5-6FD2-4A1E-BDB3-E4E634CAB063}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FDCA390-CEC0-4BD4-9166-BCAC5B503746}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FDCA390-CEC0-4BD4-9166-BCAC5B503746}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FDCA390-CEC0-4BD4-9166-BCAC5B503746}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FDCA390-CEC0-4BD4-9166-BCAC5B503746}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABA8EB13-2A22-4E11-B76F-66CF4E572A8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABA8EB13-2A22-4E11-B76F-66CF4E572A8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABA8EB13-2A22-4E11-B76F-66CF4E572A8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABA8EB13-2A22-4E11-B76F-66CF4E572A8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{120EA342-CA49-449C-AE4E-3A97E2BBCBD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{120EA342-CA49-449C-AE4E-3A97E2BBCBD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{120EA342-CA49-449C-AE4E-3A97E2BBCBD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{120EA342-CA49-449C-AE4E-3A97E2BBCBD3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

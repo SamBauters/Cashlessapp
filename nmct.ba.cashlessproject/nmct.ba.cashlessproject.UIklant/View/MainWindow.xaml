@@ -1,0 +1,43 @@
+﻿<Window x:Class="nmct.ba.cashlessproject.UIklant.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:nmct.ba.cashlessproject.UIklant.ViewModel"
+        xmlns:v="clr-namespace:nmct.ba.cashlessproject.UIklant.View"
+        Title="{Binding CurrentPage.Name}" Height="750" Width="1200">
+    <Window.DataContext>
+        <vm:ApplicationVM/>
+    </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:kGegevensVM}">
+            <v:kGegevens/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:kOpladenVM}">
+            <v:kOpladen/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:kRegistrerenVM}">
+            <v:kRegistreren/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:kStartVM}">
+            <v:kStart/>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <!-- 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        -->
+
+        <!--
+        <ItemsControl ItemsSource="{Binding Pages}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Content="{Binding Name}" Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+         -->
+        <ContentControl Grid.Row="1" Content="{Binding CurrentPage}"/>
+    </Grid>
+</Window>
