@@ -1,12 +1,15 @@
 ﻿using be.belgium.eid;
 using GalaSoft.MvvmLight.CommandWpf;
+using Newtonsoft.Json;
 using nmct.ba.cashlessproject.model;
 using nmct.ba.cashlessproject.UIklant.Converter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace nmct.ba.cashlessproject.UIklant.ViewModel
@@ -21,13 +24,6 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
             get { return "Registreren"; }
         }
 
-        private Customers _selectedCustomer;
-
-        public Customers SelectedCustomer
-        {
-            get { return _selectedCustomer; }
-            set { _selectedCustomer = value; OnPropertyChanged("SelectedCustomer"); }
-        }
         public ICommand OpladenCommand
         {
             get { return new RelayCommand(Opladen); }
@@ -73,8 +69,6 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
                         //
                         c.Address = card.getID().getStreet() + " " + card.getID().getZipCode();
                         c.CustomerName = card.getID().getFirstName() + " " + card.getID().getSurname();
-                        c.BirthDate = Convert.ToDateTime(card.getID().getDateOfBirth());
-                        c.Sex = card.getID().getGender();
                         SelectedCustomer = c;
                         OnPropertyChanged("SelectedCustomer");
                     }
@@ -83,5 +77,35 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
             BEID_ReaderSet.releaseSDK();
         }
 
+        public void ClickSave()
+        {
+            AddCustomer();
+        }
+
+        public ICommand ClickSaveCommand
+        {
+            get { return new RelayCommand(ClickSave); }
+        }
+
+        private Customers _selectedCustomer;
+        public Customers SelectedCustomer
+        {
+            get { return _selectedCustomer; }
+            set { _selectedCustomer = value; OnPropertyChanged("SelectedCustomer"); }
+        }
+
+        public async void AddCustomer()
+        {
+            Customers newCustomer = _selectedCustomer;
+            using (HttpClient client = new HttpClient())
+            {
+                string emp = JsonConvert.SerializeObject(newCustomer);
+                HttpResponseMessage response = await client.PostAsync("http://localhost:1092/api/Klant", new StringContent(emp, Encoding.UTF8, "application/json"));
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Gelukt", "Information ... ");
+                }
+            }
+        }
     }
 }

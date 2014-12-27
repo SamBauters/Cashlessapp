@@ -24,7 +24,7 @@ namespace nmct.ba.cashlessproject.api.Controllers
             DAklant.UpdateAccount(kl, p.Claims);
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
-
+            [AllowAnonymous]
         public HttpResponseMessage Post(Customers kl)
         {
             ClaimsPrincipal p = RequestContext.Principal as ClaimsPrincipal;

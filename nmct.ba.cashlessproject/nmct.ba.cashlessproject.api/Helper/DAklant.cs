@@ -63,12 +63,11 @@ namespace nmct.ba.cashlessproject.api.Helper
 
         public static int AddNewCustomer(Customers kl, IEnumerable<Claim> claims)
         {
-            string sql = "INSERT INTO Customer VALUES(@CustomerName,@Address,@Picture,@Balance)";
+            string sql = "INSERT INTO Customers (CustomerName, Address, Picture) VALUES(@CustomerName,@Address,@Picture)";
             DbParameter par1 = Database.AddParameter("AdminDB", "@CustomerName", kl.CustomerName);
             DbParameter par2 = Database.AddParameter("AdminDB", "@Address", kl.Address);
             DbParameter par3 = Database.AddParameter("AdminDB", "@Picture", kl.Picture);
-            DbParameter par4 = Database.AddParameter("AdminDB", "@Balance", kl.Balance);
-            return Database.InsertData(Database.GetConnection("KlantDB"), sql, par1, par2, par3, par4);
+            return Database.InsertData(Database.GetConnection("KlantDB"), sql, par1, par2, par3);
         }
     }
 }

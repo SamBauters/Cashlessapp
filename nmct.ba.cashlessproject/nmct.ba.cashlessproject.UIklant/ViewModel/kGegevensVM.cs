@@ -1,8 +1,10 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Command;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace nmct.ba.cashlessproject.UIklant.ViewModel
 {
@@ -19,6 +21,17 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
             get { return _gegevens; }
             set { _gegevens = value; OnPropertyChanged("Gegevens"); }
 
+        }
+
+        public ICommand OpladenCommand
+        {
+            get { return new RelayCommand(Laden); }
+        }
+
+        private void Laden()
+        {
+            ApplicationVM appvm = App.Current.MainWindow.DataContext as ApplicationVM;
+            appvm.ChangePage(new kOpladenVM());
         }
     }
 }

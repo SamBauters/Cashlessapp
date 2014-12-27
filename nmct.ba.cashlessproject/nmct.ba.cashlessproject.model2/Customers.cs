@@ -48,20 +48,5 @@ namespace nmct.ba.cashlessproject.model
             get { return _Balance; }
             set { _Balance = value; }
         }
-
-        private string _sex;
-
-        public string Sex
-        {
-            get { return _sex; }
-            set { _sex = value; }
-        }
-        private DateTime _birthDate;
-
-        public DateTime BirthDate
-        {
-            get { return _birthDate; }
-            set { _birthDate = value; }
-        }
     }
 }
