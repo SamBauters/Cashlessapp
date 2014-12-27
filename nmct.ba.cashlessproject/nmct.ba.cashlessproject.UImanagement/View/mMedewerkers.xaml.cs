@@ -25,11 +25,6 @@ namespace nmct.ba.cashlessproject.UImanagement.View
             InitializeComponent();
         }
 
-        private void lstMedewerkers_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            DisableControls();
-        }
-
         private void DisableControls()
         {
             txtVoornaam.IsEnabled = false;
@@ -64,6 +59,11 @@ namespace nmct.ba.cashlessproject.UImanagement.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             EnableControls();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            DisableControls();
         }
 
 

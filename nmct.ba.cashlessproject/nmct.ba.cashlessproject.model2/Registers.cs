@@ -8,9 +8,9 @@ namespace nmct.ba.cashlessproject.model
 {
     public class Registers
     {
-        private Register_Employee _ID;
+        private int _ID;
 
-        public Register_Employee ID
+        public int ID
         {
             get { return _ID; }
             set { _ID = value; }
@@ -30,6 +30,16 @@ namespace nmct.ba.cashlessproject.model
         {
             get { return _Device; }
             set { _Device = value; }
+        }
+
+                public Registers()
+        {
+
+        }
+
+        public override string ToString()
+        {
+            return RegisterName + " (" + Device + ")";
         }
     }
 }

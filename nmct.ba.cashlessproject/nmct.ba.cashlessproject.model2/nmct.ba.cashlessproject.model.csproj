@@ -76,7 +76,6 @@
     <Compile Include="RegistersKlant.cs" />
     <Compile Include="RegistersManagement.cs" />
     <Compile Include="Register_Employee.cs" />
-    <Compile Include="Register_EmployeeInfo.cs" />
     <Compile Include="Sales.cs" />
   </ItemGroup>
   <ItemGroup>

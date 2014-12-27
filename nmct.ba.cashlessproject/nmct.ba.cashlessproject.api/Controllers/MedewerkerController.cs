@@ -17,17 +17,18 @@ namespace nmct.ba.cashlessproject.api.Controllers
         public List<Employee> Get()
         {
             ClaimsPrincipal p = RequestContext.Principal as ClaimsPrincipal;
-            return DAmedewerker.GetEmployee(p.Claims);
-        }
-        public Employee Get(int id)
-        {
-            ClaimsPrincipal p = RequestContext.Principal as ClaimsPrincipal;
-            return DAmedewerker.GetEmployee(id, p.Claims);
+            return DAmedewerker.GetEmployees(p.Claims);
         }
 
-        public List<Employee> Get(string registerID)
+        [AllowAnonymous]
+        public Employee Get(int id)
         {
-            int id = Convert.ToInt32(registerID.Substring(1, registerID.Length - 1));
+            return DAmedewerker.GetEmployeeById(id);
+        }
+
+        public List<Register_Employee> Get(string rID)
+        {
+            int id = Convert.ToInt32(rID.Substring(1, rID.Length - 1));
 
             ClaimsPrincipal cp = RequestContext.Principal as ClaimsPrincipal;
             return DAmedewerker.GetEmployeesByRegister(id, cp.Claims);

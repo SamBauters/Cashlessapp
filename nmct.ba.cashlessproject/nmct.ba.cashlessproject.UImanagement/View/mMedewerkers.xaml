@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="750" d:DesignWidth="1200">
+             d:DesignHeight="750" d:DesignWidth="1200" Loaded="UserControl_Loaded">
     <UserControl.DataContext>
         <vm:mMedewerkersVM/>
     </UserControl.DataContext>
@@ -46,11 +46,11 @@
             <TextBlock Style="{StaticResource TextBlockStyle}"  Grid.Column="0" Grid.Row="3" Text="Email:" VerticalAlignment="Center"  Margin="0" Height="19" />
             <TextBlock Style="{StaticResource TextBlockStyle}"  Grid.Column="0" Grid.Row="4" Text="Telefoon:" VerticalAlignment="Center"  Margin="0"  Height="19" />
 
-            <TextBox x:Name="txtVoornaam" Style="{StaticResource TextBoxStyle}"  Text="{Binding SelectedMedewerker.EmployeeName}" Grid.Column="1" Grid.Row="0" Margin="5,1"/>
-            <TextBox x:Name="txtAchternaam"  Style="{StaticResource TextBoxStyle}" Text="{Binding SelectedMedewerker.EmployeeLastname}" Grid.Column="1" Grid.Row="1" Margin="5,1"/>
-            <TextBox x:Name="txtAdres" Style="{StaticResource TextBoxStyle}" Text="{Binding SelectedMedewerker.Address}" Grid.Column="1" Grid.Row="2" Margin="5,1"/>
-            <TextBox x:Name="txtEmail" Style="{StaticResource TextBoxStyle}" Text="{Binding SelectedMedewerker.Email}" Grid.Column="1" Grid.Row="3" Margin="5,1,5,1.2"/>
-            <TextBox x:Name="txtPhone" Style="{StaticResource TextBoxStyle}" Text="{Binding SelectedMedewerker.Phone}" Grid.Column="1" Grid.Row="4" Margin="5,0.8,5,1.2"/>
+            <TextBox x:Name="txtVoornaam" Style="{StaticResource TextBoxStyle}"  Text="{Binding SelectedMedewerker.EmployeeName}" Grid.Column="1" Grid.Row="0" Margin="5,1" Height="25"/>
+            <TextBox x:Name="txtAchternaam"  Style="{StaticResource TextBoxStyle}" Text="{Binding SelectedMedewerker.EmployeeLastname}" Grid.Column="1" Grid.Row="1" Margin="5,1" Height="25"/>
+            <TextBox x:Name="txtAdres" Style="{StaticResource TextBoxStyle}" Text="{Binding SelectedMedewerker.Address}" Grid.Column="1" Grid.Row="2" Margin="5,1" Height="25"/>
+            <TextBox x:Name="txtEmail" Style="{StaticResource TextBoxStyle}" Text="{Binding SelectedMedewerker.Email}" Grid.Column="1" Grid.Row="3" Margin="5,1,5,1.2" Height="25"/>
+            <TextBox x:Name="txtPhone" Style="{StaticResource TextBoxStyle}" Text="{Binding SelectedMedewerker.Phone}" Grid.Column="1" Grid.Row="4" Margin="5,0.8,5,1.2" Height="25"/>
 
         </Grid>
         <Grid Name="Buttons" Grid.Column="3" Grid.Row="4">
@@ -68,7 +68,7 @@
 
 
         </Grid>
-        <ListBox Style="{StaticResource ListboxStyle}" Name="lstMedewerkers" ItemsSource="{Binding Medewerkers}" DisplayMemberPath="EmployeeName" SelectedItem="{Binding SelectedMedewerker}" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Margin="0,0,0,0" SelectionChanged="lstMedewerkers_SelectionChanged"/>
+        <ListBox Style="{StaticResource ListboxStyle}" Name="lstMedewerkers" ItemsSource="{Binding Medewerkers}" DisplayMemberPath="EmployeeName" SelectedItem="{Binding SelectedMedewerker}" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Margin="0,0,0,0"/>
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="1" Text="Medewerkers:" VerticalAlignment="Center" Margin="0.4,0,11,0" />
         <TextBlock Style="{StaticResource TextBlockStyle}"  Grid.Column="3" Grid.Row="1" Text="Geselecteerde medewerker:"  VerticalAlignment="Center" Height="16" />
 

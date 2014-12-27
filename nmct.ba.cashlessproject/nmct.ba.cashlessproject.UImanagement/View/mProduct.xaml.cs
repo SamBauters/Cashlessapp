@@ -24,5 +24,40 @@ namespace nmct.ba.cashlessproject.UImanagement.View
         {
             InitializeComponent();
         }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            DisableControls();
+        }
+        private void DisableControls()
+        {
+            txtPrijs.IsEnabled = false;
+            txtProductnaam.IsEnabled = false;
+        }
+        private void EnableControls()
+        {
+            txtPrijs.IsEnabled = true;
+            txtProductnaam.IsEnabled = true;
+        }
+
+        private void btnNieuw_Click(object sender, RoutedEventArgs e)
+        {
+            EnableControls();
+        }
+
+        private void Bewerk_Click(object sender, RoutedEventArgs e)
+        {
+            EnableControls();
+        }
+
+        private void Verwijderen_Click(object sender, RoutedEventArgs e)
+        {
+            DisableControls();
+        }
+
+        private void Opslaan_Click(object sender, RoutedEventArgs e)
+        {
+            DisableControls();
+        }
     }
 }

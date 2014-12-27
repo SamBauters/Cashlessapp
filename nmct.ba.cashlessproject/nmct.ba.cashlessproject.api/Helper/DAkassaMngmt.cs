@@ -12,19 +12,26 @@ namespace nmct.ba.cashlessproject.api.Helper
     public class DAkassaMngmt
     {
         private const string CONNECTIONSTRING = "KlantCon";
-        public static List<RegistersKlant> GetKassasManagement(IEnumerable<Claim> claims)
+        public static List<Registers> GetKassasManagement(IEnumerable<Claim> claims)
         {
-            List<RegistersKlant> list = new List<RegistersKlant>();
-            string sql = "SELECT RegisterID,EmployeeID, EmployeeName, FromDate, UntilDate, RegisterName, Device FROM [CashlessClient].[dbo].Register_Employee Inner join [CashlessClient].[dbo].[Employee] on Employee.ID = Register_Employee.EmployeeID INNER JOIN CashlessClient.dbo.Registers ON Registers.ID = Register_Employee.RegisterID";
-            DbDataReader reader = Database.GetData(Database.GetConnection("AdminDB"), sql);
+            List<Registers> list = new List<Registers>();
+            string sql = "SELECT * FROM Registers";
+            DbDataReader reader = Database.GetData(Database.GetConnection("KlantDB"), sql);
             while (reader.Read())
             {
-                list.Add(Create(reader));
+                Registers r = new Registers();
+                r.ID = Convert.ToInt32(reader["ID"]);
+                r.RegisterName = reader["RegisterName"].ToString();
+                r.Device = reader["Device"].ToString();
+
+                list.Add(r);
             }
-            reader.Close();
+
             return list;
 
         }
+
+
 
         private static RegistersKlant Create(IDataRecord record)
         {
@@ -41,37 +48,30 @@ namespace nmct.ba.cashlessproject.api.Helper
 
             };
         }
-        public static int UpdateAccount(RegistersKlant kassa, IEnumerable<Claim> claims)
+        public static void UpdateAccount(Registers r, IEnumerable<Claim> claims)
         {
-            int rowsaffected = 0;
+            string sql = "UPDATE Products SET RegisterName=@RegisterName, Device=@Device WHERE ID=@ID";
+            DbParameter par1 = Database.AddParameter("AdminDB", "@RegisterName", r.RegisterName);
+            DbParameter par2 = Database.AddParameter("AdminDB", "@Device", r.Device);
+            DbParameter par3 = Database.AddParameter("AdminDB", "@ID", r.ID);
+            Database.ModifyData(Database.GetConnection("KlantDB"), sql, par1, par2, par3);
+        }
 
-            int id = kassa.ID;
-            string medewerkerName = kassa.EmployeeName;
-            string device = kassa.Device;
-            Double from = kassa.From;
-            string kassaName = kassa.RegisterName;
-            Double until = kassa.Until;
-            int medewerkerid = kassa.EmployeeID;
+        public static Registers GetRegisterById(int id, IEnumerable<Claim> claims)
+        {
+            Registers r = new Registers();
+            string sql = "SELECT * FROM Registers WHERE ID=@ID";
+            DbParameter par1 = Database.AddParameter("AdminDB", "@ID", id);
+            DbDataReader reader = Database.GetData(Database.GetConnection("KlantDB"), sql, par1);
 
+            while (reader.Read())
+            {
+                r.ID = Convert.ToInt32(reader["ID"]);
+                r.RegisterName = reader["RegisterName"].ToString();
+                r.Device = reader["Device"].ToString();
+            }
 
-            string sql = "UPDATE Registers SET CustomerName = @Name, Balance = @Balance, Address = @Address, Picture = @Picture WHERE ID=@ID";
-            DbParameter par1 = Database.AddParameter(CONNECTIONSTRING, "@RegisterName", kassaName);
-            DbParameter par2 = Database.AddParameter(CONNECTIONSTRING, "@Device", device);
-            DbParameter par3 = Database.AddParameter(CONNECTIONSTRING, "@ID", id);
-
-            rowsaffected += Database.ModifyData(Database.GetConnection("AdminDB"), sql, par1, par2, par3);
-
-            string sql1 = "UPDATE [Klant].[dbo].[Register_Employee] SET EmployeeID = @EmployeeID, FromDate = @FromDate, UntilDate = @UntilDate WHERE RegisterID=@RegisterID";
-            DbParameter par11 = Database.AddParameter(CONNECTIONSTRING, "@RegisterID", id);
-            DbParameter par12 = Database.AddParameter(CONNECTIONSTRING, "@EmployeeID", medewerkerid);
-            DbParameter par13 = Database.AddParameter(CONNECTIONSTRING, "@FromDate", from);
-            DbParameter par14 = Database.AddParameter(CONNECTIONSTRING, "@UntilDate", until);
-
-
-
-            rowsaffected += Database.ModifyData(Database.GetConnection("AdminDB"), sql1, par1, par2, par3);
-
-            return rowsaffected;
+            return r;
         }
     }
 }

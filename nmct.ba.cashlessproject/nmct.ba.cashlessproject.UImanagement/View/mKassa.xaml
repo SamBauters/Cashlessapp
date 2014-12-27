@@ -17,10 +17,8 @@
     </UserControl.DataContext>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="23*"/>
-            <RowDefinition Height="227*"/>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="22*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="34*"/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -29,10 +27,11 @@
             <ColumnDefinition Width="6*"/>
             <ColumnDefinition Width="175*"/>
         </Grid.ColumnDefinitions>
-        <Grid Name="Gegevens" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" Margin="0,0,0,0">
+        <Grid Name="Gegevens" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="122*"/>
-                <ColumnDefinition Width="213*"/>
+                <ColumnDefinition Width="299*"/>
+                <ColumnDefinition Width="415*"/>
+                <ColumnDefinition Width="106*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -44,26 +43,18 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="0" Text="Kassanummer:" VerticalAlignment="Center"  Height="19"  />
-            <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="1" Text="Medewerker:" VerticalAlignment="Center" Height="19"  />
-            <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="2" Text="Device:" VerticalAlignment="Center"  Height="19" />
-            <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="3" Text="Vanaf:" VerticalAlignment="Center" Height="19"/>
-            <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="4" Text="Tot en met:" VerticalAlignment="Center"  Height="19"/>
+            <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="0" Text="Kassanaam:" VerticalAlignment="Center"  Height="18" Margin="0,30"  />
+            <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="1" Text="Medewerker:" VerticalAlignment="Center" Height="18" Margin="0,30"  />
+            <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="2" Text="Device:" VerticalAlignment="Center"  Height="18" Margin="0,30" />
+            <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="3" Text="Vanaf:" VerticalAlignment="Center" Height="18" Margin="0,30"/>
+            <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="4" Text="Tot en met:" VerticalAlignment="Center"  Height="18" Margin="0,30"/>
 
-            <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding SelectedEmployee.EmployeeID}" Grid.Column="1" Grid.Row="0" Height="25" />
-            <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding SelectedEmployee.RegisterID}" Grid.Column="1" Grid.Row="1" Height="25" />
-            <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding SelectedEmployee.EmployeeLastname}" Grid.Column="1" Grid.Row="2" Height="25" />
-            <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding SelectedEmployee.From, Converter={StaticResource UnixToDate}, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Height="25" />
-            <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding SelectedEmployee.Until, Converter={StaticResource UnixToDate}, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" Height="25"/>
+            <TextBox x:Name="txtKassanummer" Style="{StaticResource TextBoxStyle}" Text="{Binding SelectedKassa.RegisterName}" Grid.Column="1" Grid.Row="0" Height="25" />
+            <TextBox x:Name="txtMedewerker" Style="{StaticResource TextBoxStyle}" Text="{Binding SelectedEmployee.EmployeeName}" Grid.Column="1" Grid.Row="1" Height="25" />
+            <TextBox x:Name="txtDevice" Style="{StaticResource TextBoxStyle}" Text="{Binding SelectedKassa.Device}" Grid.Column="1" Grid.Row="2" Height="25" />
+            <TextBox x:Name="txtFrom" Style="{StaticResource TextBoxStyle}" Text="{Binding SelectedRegisterEmployee.From, Converter={StaticResource UnixToDate}, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Height="25" />
+            <TextBox x:Name="txtUntil" Style="{StaticResource TextBoxStyle}" Text="{Binding SelectedRegisterEmployee.Until, Converter={StaticResource UnixToDate}, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" Height="25"/>
 
-        </Grid>
-        <Grid Name="Buttons" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-
-            </Grid.ColumnDefinitions>
         </Grid>
         <ListBox Style="{StaticResource ListboxStyle}" ItemsSource="{Binding Kassa}" DisplayMemberPath="RegisterName" SelectedItem="{Binding SelectedKassa}" Grid.Column="1" Grid.Row="1" Margin="0,0,173,0">
             <i:Interaction.Triggers>
@@ -72,10 +63,16 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </ListBox>
-        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="1" Text="Kassa's:" Grid.ColumnSpan="2" VerticalAlignment="Center" />
-        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Column="3" Grid.Row="0" Text="Info geselecteerde medewerker:"  VerticalAlignment="Center"/>
-        <ListBox x:Name="lstMedewerkers" Style="{StaticResource ListboxStyle}" ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedEmployee}" DisplayMemberPath="EmployeeName" Grid.Column="1" Grid.Row="1" Margin="173,0,0,0"/>
-        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="1" Text="Medewerkers:" Grid.ColumnSpan="3" VerticalAlignment="Center" Margin="173,20,647,20" />
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="1" Text="Kassa's:" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="0,21,0,20" />
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Column="3" Grid.Row="0" Text="Info geselecteerde medewerker:"  VerticalAlignment="Center" Margin="0,22,0,10" Height="28"/>
+        <ListBox x:Name="lstMedewerkers" Style="{StaticResource ListboxStyle}" ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedEmployee}" DisplayMemberPath="EmployeeName" Grid.Column="1" Grid.Row="1" Margin="173,0,0,0">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <cmd:EventToCommand Command="{Binding GetRegister_EmployeeCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ListBox>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="1" Text="Medewerkers:" Grid.ColumnSpan="3" VerticalAlignment="Center" Margin="173,21,647,20" />
 
 
     </Grid>

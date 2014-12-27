@@ -23,6 +23,16 @@ namespace nmct.ba.cashlessproject.UImanagement.View
         public mKassa()
         {
             InitializeComponent();
+            DisableControls();
+        }
+
+        private void DisableControls()
+        {
+            txtDevice.IsEnabled = false;
+            txtFrom.IsEnabled = false;
+            txtKassanummer.IsEnabled = false;
+            txtMedewerker.IsEnabled = false;
+            txtUntil.IsEnabled = false;
         }
     }
 }

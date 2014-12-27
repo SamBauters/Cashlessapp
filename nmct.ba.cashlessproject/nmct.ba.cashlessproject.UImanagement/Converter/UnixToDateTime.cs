@@ -11,7 +11,7 @@ namespace nmct.ba.cashlessproject.UImanagement.Converter
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            double UnixTimestamp = (double)value;
+            double UnixTimestamp = (int)value;
             // Unix timestamp is seconds past epoch
             System.DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Local);
             dtDateTime = dtDateTime.AddSeconds(UnixTimestamp).ToLocalTime();

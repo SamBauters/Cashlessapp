@@ -8,36 +8,41 @@ namespace nmct.ba.cashlessproject.model
 {
    public class Register_Employee
     {
-        private Registers _RegisterID;
+        private Registers _Register;
 
-        public Registers RegisterID
+        public Registers Register
         {
-            get { return _RegisterID; }
-            set { _RegisterID = value; }
+            get { return _Register; }
+            set { _Register = value; }
         }
 
-        private Employee _EmployeeID;
+        private Employee _Employee;
 
-        public Employee EmployeeID
+        public Employee Employee
         {
-            get { return _EmployeeID; }
-            set { _EmployeeID = value; }
+            get { return _Employee; }
+            set { _Employee = value; }
         }
 
-        private string _From;
+        private int _From;
 
-        public string From
+        public int From
         {
             get { return _From; }
             set { _From = value; }
         }
 
-        private string _Until;
+        private int _Until;
 
-        public string Until
+        public int Until
         {
             get { return _Until; }
             set { _Until = value; }
         }
+
+       public Register_Employee()
+       {
+
+       }
     }
 }

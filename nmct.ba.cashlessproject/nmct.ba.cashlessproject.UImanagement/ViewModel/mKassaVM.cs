@@ -23,12 +23,43 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
         {
             get { return "Kassa"; }
         }
-        private ObservableCollection<RegistersKlant> _kassa;
+        private ObservableCollection<Registers> _kassa;
 
-        public ObservableCollection<RegistersKlant> Kassa
+        public ObservableCollection<Registers> Kassa
         {
             get { return _kassa; }
             set { _kassa = value; OnPropertyChanged("Kassa"); }
+        }
+
+        private ObservableCollection<Register_Employee> _registersEmployees;
+
+        public ObservableCollection<Register_Employee> RegistersEmployees
+        {
+            get { return _registersEmployees; }
+            set { _registersEmployees = value; OnPropertyChanged("RegistersEmployees"); }
+        }
+
+        private Registers _selectedKassa;
+        public Registers SelectedKassa
+        {
+            get { return _selectedKassa; }
+            set { _selectedKassa = value; OnPropertyChanged("SelectedKassa"); }
+        }
+
+        private Employee _selectedEmployee;
+
+        public Employee SelectedEmployee
+        {
+            get { return _selectedEmployee; }
+            set { _selectedEmployee = value; OnPropertyChanged("SelectedEmployee"); }
+        }
+
+        private Register_Employee _selectedRegisterEmployee;
+
+        public Register_Employee SelectedRegisterEmployee
+        {
+            get { return _selectedRegisterEmployee; }
+            set { _selectedRegisterEmployee = value; OnPropertyChanged("SelectedRegisterEmployee"); }
         }
 
         private ObservableCollection<Employee> _employees;
@@ -38,6 +69,7 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
             get { return _employees; }
             set { _employees = value; OnPropertyChanged("Employees"); }
         }
+        
 
         private async void GetKassas()
         {
@@ -48,7 +80,7 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
                 if (response.IsSuccessStatusCode)
                 {
                     string json = await response.Content.ReadAsStringAsync();
-                    Kassa = JsonConvert.DeserializeObject<ObservableCollection<RegistersKlant>>(json);
+                    Kassa = JsonConvert.DeserializeObject<ObservableCollection<Registers>>(json);
                 }
             }
         }
@@ -58,29 +90,26 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
             using (HttpClient client = new HttpClient())
             {
                 client.SetBearerToken(ApplicationVM.token.AccessToken);
-                HttpResponseMessage response = await client.GetAsync("http://localhost:1092/api/Medewerker?registerID=r" + SelectedKassa.ID);
+                HttpResponseMessage response = await client.GetAsync("http://localhost:1092/api/Medewerker?rID=r" + SelectedKassa.ID);
 
                 if (response.IsSuccessStatusCode)
                 {
                     string json = await response.Content.ReadAsStringAsync();
-                    Employees = JsonConvert.DeserializeObject<ObservableCollection<Employee>>(json);
+                    RegistersEmployees = JsonConvert.DeserializeObject<ObservableCollection<Register_Employee>>(json);
+
+                    ObservableCollection<Employee> employeeList = new ObservableCollection<Employee>();
+
+                    foreach (Register_Employee re in RegistersEmployees)
+                    {
+                        employeeList.Add(re.Employee);
+                    }
+
+                    Employees = employeeList;
                 }
             }
         }
 
-        private RegistersKlant _selectedKassa;
-        public RegistersKlant SelectedKassa
-        {
-            get { return _selectedKassa; }
-            set { _selectedKassa = value; OnPropertyChanged("SelectedKassa"); }
-        }
 
-        private Register_Employee _selectedEmployee;
-        public Register_Employee SelectedEmployee
-        {
-            get { return _selectedEmployee; }
-            set { _selectedEmployee = value; OnPropertyChanged("SelectedEmployee"); }
-        }
         public ICommand GetEmployeesCommand
         {
             get { return new RelayCommand(GetEmployees); }
@@ -89,6 +118,26 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
         {
             GetEmployeesByRegister();
         }
+
+        public ICommand GetRegister_EmployeeCommand
+        {
+            get { return new RelayCommand(GetRegister_Employee); }
+        }
+
+        public void GetRegister_Employee()
+        {
+            if (SelectedEmployee != null)
+            {
+                foreach (Register_Employee re in RegistersEmployees)
+                {
+                    if (SelectedKassa.ID.Equals(re.Register.ID) && SelectedEmployee.ID.Equals(re.Employee.ID))
+                    {
+                        SelectedRegisterEmployee = re;
+                    }
+                }
+            }
+        }
+
 
 
     }

@@ -53,13 +53,12 @@ namespace nmct.ba.cashlessproject.api.Helper
 
         public static void UpdateAccount(Customers kl, IEnumerable<Claim> claims)
         {
-            string sql = "UPDATE Customers SET CustomerName=@CustomerName, Address=@Address, Picture=@Picture, Balance=@Balance WHERE ID=@ID";
+            string sql = "UPDATE Customers SET CustomerName=@CustomerName, Address=@Address, Balance=@Balance WHERE ID=@ID";
             DbParameter par1 = Database.AddParameter("AdminDB", "@CustomerName", kl.CustomerName);
             DbParameter par2 = Database.AddParameter("AdminDB", "@Address", kl.Address);
-            DbParameter par3 = Database.AddParameter("AdminDB", "@Picture", kl.Picture);
-            DbParameter par4 = Database.AddParameter("AdminDB", "@Balance", kl.Balance);
-            DbParameter par5 = Database.AddParameter("AdminDB", "@ID", kl.ID);
-            Database.ModifyData(Database.GetConnection("AdminDB"), sql, par1, par2, par3, par4, par5);
+            DbParameter par3 = Database.AddParameter("AdminDB", "@Balance", kl.Balance);
+            DbParameter par4 = Database.AddParameter("AdminDB", "@ID", kl.ID);
+            Database.ModifyData(Database.GetConnection("KlantDB"), sql, par1, par2, par3, par4);
         }
 
         public static int AddNewCustomer(Customers kl, IEnumerable<Claim> claims)
@@ -69,7 +68,7 @@ namespace nmct.ba.cashlessproject.api.Helper
             DbParameter par2 = Database.AddParameter("AdminDB", "@Address", kl.Address);
             DbParameter par3 = Database.AddParameter("AdminDB", "@Picture", kl.Picture);
             DbParameter par4 = Database.AddParameter("AdminDB", "@Balance", kl.Balance);
-            return Database.InsertData(Database.GetConnection("AdminDB"), sql, par1, par2, par3, par4);
+            return Database.InsertData(Database.GetConnection("KlantDB"), sql, par1, par2, par3, par4);
         }
     }
 }

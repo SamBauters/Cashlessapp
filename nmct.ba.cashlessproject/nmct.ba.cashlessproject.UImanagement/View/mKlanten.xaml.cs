@@ -24,5 +24,38 @@ namespace nmct.ba.cashlessproject.UImanagement.View
         {
             InitializeComponent();
         }
+
+        private void DisableControls()
+        {
+            txtNaam.IsEnabled = false;
+            txtBalans.IsEnabled = false;
+            txtAdres.IsEnabled = false;
+        }
+        private void EnableControls()
+        {
+            txtNaam.IsEnabled = true;
+            txtBalans.IsEnabled = true;
+            txtAdres.IsEnabled = true;
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            DisableControls();
+        }
+
+        private void btnBewerk_Click(object sender, RoutedEventArgs e)
+        {
+            EnableControls();
+        }
+
+        private void BtnVerwijderen_Click(object sender, RoutedEventArgs e)
+        {
+            DisableControls();
+        }
+
+        private void BtnOpslaan_Click(object sender, RoutedEventArgs e)
+        {
+            DisableControls();
+        }
     }
 }

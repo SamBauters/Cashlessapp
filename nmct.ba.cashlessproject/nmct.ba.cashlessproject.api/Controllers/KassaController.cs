@@ -13,12 +13,13 @@ namespace nmct.ba.cashlessproject.api.Controllers
    [Authorize]
     public class KassaController : ApiController
     {
-        public List<RegistersKlant> Get()
+        public List<Registers> Get()
         {
             ClaimsPrincipal p = RequestContext.Principal as ClaimsPrincipal;
             return DAkassaMngmt.GetKassasManagement(p.Claims);
         }
-        public HttpResponseMessage Put(RegistersKlant kl)
+
+        public HttpResponseMessage Put(Registers kl)
         {
             ClaimsPrincipal p = RequestContext.Principal as ClaimsPrincipal;
             DAkassaMngmt.UpdateAccount(kl, p.Claims);
