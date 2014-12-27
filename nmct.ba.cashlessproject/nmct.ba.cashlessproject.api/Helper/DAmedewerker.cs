@@ -53,6 +53,47 @@ namespace nmct.ba.cashlessproject.api.Helper
             };
         }
 
+        public static List<Employee> GetEmployeesByRegister(int rId, IEnumerable<Claim> claims)
+        {
+            List<Employee> list = new List<Employee>();
+            List<int> employeeIDs = new List<int>();
+
+            string sql = "SELECT EmployeeID FROM Register_Employee WHERE RegisterID=@RegisterID";
+            DbParameter par1 = Database.AddParameter("AdminDB", "@RegisterID", rId);
+            DbDataReader reader = Database.GetData(Database.GetConnection("KlantDB"), sql, par1);
+            while (reader.Read())
+            {
+                int employeeID = Convert.ToInt32(reader["EmployeeID"]);
+
+                employeeIDs.Add(employeeID);
+            }
+
+            if (employeeIDs.Count > 0)
+            {
+                sql = "SELECT * FROM Employee WHERE ID=@ID";
+
+                foreach (int id in employeeIDs)
+                {
+                    par1 = Database.AddParameter("AdminDB", "@ID", id);
+                    reader = Database.GetData(Database.GetConnection("KlantDB"), sql, par1);
+
+                    while (reader.Read())
+                    {
+                        Employee e = new Employee();
+                        e.ID = Convert.ToInt32(reader["ID"]);
+                        e.EmployeeName = reader["EmployeeName"].ToString();
+                        e.Address = reader["Address"].ToString();
+                        e.Email = reader["Email"].ToString();
+                        e.Phone = reader["Phone"].ToString();
+
+                        list.Add(e);
+                    }
+                }
+            }
+
+            return list;
+        }
+
         public static int UpdateEmployee(Employee emp, IEnumerable<Claim> claims)
         {
             int rowsaffected = 0;
