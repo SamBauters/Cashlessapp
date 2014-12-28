@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="nmct.ba.cashlessproject.UIklant.View.kRegistrerenLogin"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:nmct.ba.cashlessproject.UIklant.ViewModel"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:c="clr-namespace:nmct.ba.cashlessproject.UIklant.Converter"
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="1280" Loaded="UserControl_Loaded">
+    <UserControl.DataContext>
+        <vm:kRegistrerenLoginVM/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <c:StringToImageConverter x:Key="StringToImageConverter"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="txbLogin" Grid.Row="0" Grid.Column="2" Text="LOG IN MET JE E-ID" Margin="122,30,70,27" Grid.ColumnSpan="2" Style="{StaticResource TextBlockStyle}" RenderTransformOrigin="0.5,0.5" Height="23"/>
+        <TextBlock x:Name="txbInfo" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="1" Style="{StaticResource TextBlockStyle}" Text="Registreren en inloggen gaat automatisch" Margin="0,34,0,27" />
+        <Image x:Name="imgIdentiteitskaart" Grid.RowSpan="3" Grid.Row="2" Grid.Column="4" Style="{StaticResource ImageStyle}" Margin="10,5,0,5" Source="{Binding Klant.Picture, Converter={StaticResource StringToImageConverter}}"/>
+        <TextBlock x:Name="txbVoornaam" Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBlockStyle}" Margin="0,21,0,20">Voornaam:</TextBlock>
+        <TextBox x:Name="txtVoornaam" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Voornaam}" Height="25" Margin="0,18,0,17"/>
+        <TextBlock x:Name="txbNaam" Grid.Row="3" Grid.Column="1" Style="{StaticResource TextBlockStyle}" Margin="0,21,0,20">Naam:</TextBlock>
+        <TextBox x:Name="txtNaam" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Naam}" Height="25" Margin="0,18,0,17"/>
+        <TextBlock x:Name="txbStraat" Grid.Row="4" Grid.Column="1" Style="{StaticResource TextBlockStyle}" Margin="0,21,0,20">Straat:</TextBlock>
+        <TextBox x:Name="txtStraat" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Adres}" Height="25" Margin="0,18,0,17"/>
+        <TextBlock x:Name="lblStad" Grid.Row="5" Grid.Column="1" Style="{StaticResource TextBlockStyle}" Margin="0,21,0,20">Stad:</TextBlock>
+        <TextBox x:Name="txtStad" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Stad}" Height="25" Margin="0,18,0,17"/>
+        <Button x:Name="btnLeesKaartRegistreren" Grid.Row="6" Grid.Column="2" Style="{StaticResource ButtonStyle}" Command="{Binding LoadEidCommand}" Margin="10,10,10,139" Content="Lees EID" />
+        <Button x:Name="btnInloggen" Grid.Row="6" Grid.Column="3" Style="{StaticResource ButtonStyle}" Command="{Binding LogInCommand}" CommandParameter="{Binding ElementName=RegisterLogin}" Margin="10,10,10,139" Content="Inloggen" />
+    </Grid>
+</UserControl>

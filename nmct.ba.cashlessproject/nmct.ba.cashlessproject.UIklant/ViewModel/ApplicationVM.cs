@@ -1,6 +1,8 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using nmct.ba.cashlessproject.UIklant.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,12 +14,8 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
     {
         public ApplicationVM()
         {
-            //Pages.Add(new PageGegevensVM()); 
-            //Pages.Add(new PageOpladenVM());
-            //Pages.Add(new PageRegistrerenVM());
-            Pages.Add(new kStartVM());
-            
-
+            Pages.Add(new kRegistrerenLoginVM());
+            Pages.Add(new kOpladenVM());
             CurrentPage = Pages[0];
         }
 

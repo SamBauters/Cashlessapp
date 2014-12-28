@@ -13,22 +13,20 @@ namespace nmct.ba.cashlessproject.api.Controllers
         [Authorize]
     public class KlantController : ApiController
     {
+            [AllowAnonymous]
         public List<Customers> Get()
         {
-            ClaimsPrincipal p = RequestContext.Principal as ClaimsPrincipal;
-            return DAklant.GetKlanten(p.Claims);
+            return DAklant.GetKlanten();
         }
         public HttpResponseMessage Put(Customers kl)
         {
-            ClaimsPrincipal p = RequestContext.Principal as ClaimsPrincipal;
-            DAklant.UpdateAccount(kl, p.Claims);
+            DAklant.UpdateAccount(kl);
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
             [AllowAnonymous]
         public HttpResponseMessage Post(Customers kl)
         {
-            ClaimsPrincipal p = RequestContext.Principal as ClaimsPrincipal;
-            DAklant.AddNewCustomer(kl, p.Claims);
+            DAklant.AddNewCustomer(kl);
             return new HttpResponseMessage(HttpStatusCode.Created);
         }
     }

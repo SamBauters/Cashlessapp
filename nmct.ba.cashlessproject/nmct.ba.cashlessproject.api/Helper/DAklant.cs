@@ -22,7 +22,7 @@ namespace nmct.ba.cashlessproject.api.Helper
 
             return Database.CreateConnectionString("System.Data.SqlClient", @"SAMBAUTERS", Cryptography.Decrypt(dbname), Cryptography.Decrypt(dblogin), Cryptography.Decrypt(dbpass));
         }
-        public static List<Customers> GetKlanten(IEnumerable<Claim> claims)
+        public static List<Customers> GetKlanten()
         {
             List<Customers> list = new List<Customers>();
             string sql = "SELECT [ID],[CustomerName],[Address],[Balance],[Picture] FROM [CashlessClient].[dbo].[Customers]";
@@ -51,7 +51,7 @@ namespace nmct.ba.cashlessproject.api.Helper
             return c;
         }
 
-        public static void UpdateAccount(Customers kl, IEnumerable<Claim> claims)
+        public static void UpdateAccount(Customers kl)
         {
             string sql = "UPDATE Customers SET CustomerName=@CustomerName, Address=@Address, Balance=@Balance WHERE ID=@ID";
             DbParameter par1 = Database.AddParameter("AdminDB", "@CustomerName", kl.CustomerName);
@@ -61,7 +61,7 @@ namespace nmct.ba.cashlessproject.api.Helper
             Database.ModifyData(Database.GetConnection("KlantDB"), sql, par1, par2, par3, par4);
         }
 
-        public static int AddNewCustomer(Customers kl, IEnumerable<Claim> claims)
+        public static int AddNewCustomer(Customers kl)
         {
             string sql = "INSERT INTO Customers (CustomerName, Address, Picture) VALUES(@CustomerName,@Address,@Picture)";
             DbParameter par1 = Database.AddParameter("AdminDB", "@CustomerName", kl.CustomerName);

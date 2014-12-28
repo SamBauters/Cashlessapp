@@ -8,36 +8,14 @@
         <vm:ApplicationVM/>
     </Window.DataContext>
     <Window.Resources>
-        <DataTemplate DataType="{x:Type vm:kGegevensVM}">
-            <v:kGegevens/>
+        <DataTemplate DataType="{x:Type vm:kRegistrerenLoginVM}">
+            <v:kRegistrerenLogin/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:kOpladenVM}">
             <v:kOpladen/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type vm:kRegistrerenVM}">
-            <v:kRegistreren/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type vm:kStartVM}">
-            <v:kStart/>
-        </DataTemplate>
     </Window.Resources>
     <Grid>
-        <!-- 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="2*"/>
-        </Grid.RowDefinitions>
-        -->
-
-        <!--
-        <ItemsControl ItemsSource="{Binding Pages}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Button Content="{Binding Name}" Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding}"/>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-         -->
-        <ContentControl Grid.Row="1" Content="{Binding CurrentPage}"/>
+        <ContentControl Content="{Binding CurrentPage}" />
     </Grid>
 </Window>

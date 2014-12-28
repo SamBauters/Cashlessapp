@@ -16,13 +16,26 @@ using System.Windows.Shapes;
 namespace nmct.ba.cashlessproject.UIklant.View
 {
     /// <summary>
-    /// Interaction logic for PageOne.xaml
+    /// Interaction logic for kRegistrerenLogin.xaml
     /// </summary>
-    public partial class PageOne : UserControl
+    public partial class kRegistrerenLogin : UserControl
     {
-        public PageOne()
+        public kRegistrerenLogin()
         {
             InitializeComponent();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            DisableControls();
+        }
+
+        private void DisableControls()
+        {
+            txtNaam.IsEnabled = false;
+            txtStad.IsEnabled = false;
+            txtStraat.IsEnabled = false;
+            txtVoornaam.IsEnabled = false;
         }
     }
 }

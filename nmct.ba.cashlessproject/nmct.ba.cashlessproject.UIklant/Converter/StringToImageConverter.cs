@@ -6,10 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 using System.Drawing;
+using System.Windows.Data;
 
 namespace nmct.ba.cashlessproject.UIklant.Converter
 {
-    public class StringToImageConverter
+    public class StringToImageConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
@@ -17,17 +18,17 @@ namespace nmct.ba.cashlessproject.UIklant.Converter
             {
                 byte[] input = (byte[])value;
                 if (input.Length <= 1)
-                    return new BitmapImage(new Uri(@"pack://application:,,,/nmct.ba.demo.ui;component/View/images/noimage.png"));
+                    return new BitmapImage(new Uri(@"pack://application:,,,/nmct.ba.cashlessproject.UIklant;component/View/Images/noimage.png"));
                 else
                     return BitmapImageFromBytes(input);
             }
             else
-                return new BitmapImage(new Uri(@"pack://application:,,,/nmct.ba.demo.ui;component/View/images/noimage.png"));
+                return new BitmapImage(new Uri(@"pack://application:,,,/nmct.ba.cashlessproject.UIklant;component/View/Images/noimage.png"));
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            return null;
+            throw new NotImplementedException();
         }
 
         public static BitmapImage BitmapImageFromBytes(byte[] bytes)

@@ -31,8 +31,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External libs", "External l
 		..\windowqr_c5af0bb2fbba\external libs\AForge.xml = ..\windowqr_c5af0bb2fbba\external libs\AForge.xml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zxing", "ZXing\zxing.csproj", "{6431CF13-7A7B-4602-B96A-47CDA6F0B008}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,10 +57,6 @@ Global
 		{120EA342-CA49-449C-AE4E-3A97E2BBCBD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{120EA342-CA49-449C-AE4E-3A97E2BBCBD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{120EA342-CA49-449C-AE4E-3A97E2BBCBD3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6431CF13-7A7B-4602-B96A-47CDA6F0B008}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6431CF13-7A7B-4602-B96A-47CDA6F0B008}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6431CF13-7A7B-4602-B96A-47CDA6F0B008}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6431CF13-7A7B-4602-B96A-47CDA6F0B008}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
