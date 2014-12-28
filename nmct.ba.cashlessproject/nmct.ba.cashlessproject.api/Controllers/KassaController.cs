@@ -13,6 +13,7 @@ namespace nmct.ba.cashlessproject.api.Controllers
    [Authorize]
     public class KassaController : ApiController
     {
+       [AllowAnonymous]
         public List<Registers> Get()
         {
             ClaimsPrincipal p = RequestContext.Principal as ClaimsPrincipal;

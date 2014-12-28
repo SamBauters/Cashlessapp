@@ -8,9 +8,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1200">
-    <UserControl.DataContext>
+    <!--<UserControl.DataContext>
         <vm:kaBestellingVM/>
-    </UserControl.DataContext>
+    </UserControl.DataContext>-->
     <UserControl.Resources>
         <ItemsPanelTemplate x:Key="PanelTemplate">
             <WrapPanel Orientation="Horizontal" Margin="5"/>
@@ -69,17 +69,17 @@
             </Grid.RowDefinitions>
             <TextBlock Style="{StaticResource TextblockStyle}" Grid.Column="0" Grid.Row="0" Text="Naam:"  Margin="0,0,0,0" />
             <TextBlock Style="{StaticResource TextblockStyle}" Grid.Column="0" Grid.Row="1" Text="Saldo:"  Margin="0,0,0,0"  />
-            <TextBox Grid.Column="1" Grid.Row="0" Margin="0,1,5,1"/>
-            <TextBox Grid.Column="1" Grid.Row="1" Margin="0,1,5,1"/>
+            <TextBox Grid.Column="1" Grid.Row="0" Height="25"/>
+            <TextBox Grid.Column="1" Grid.Row="1" Height="25"/>
             <TextBlock Style="{StaticResource TextblockStyle}" Text="Product(en):" Grid.Column="0" Grid.Row="2" />
             <ListBox Grid.Row="3" Grid.RowSpan="3" Grid.ColumnSpan="2" Margin="0,0,5,2" />
             <TextBlock Style="{StaticResource TextblockStyle}"  Grid.Column="0" Grid.Row="6" Text="Totaal bedrag:" />
-            <TextBox Name="TxbTotaalBedrag" Grid.Column="1" Grid.Row="6" Margin="0,0,5,0"/>
+            <TextBox Name="TxbTotaalBedrag" Grid.Column="1" Grid.Row="6" Margin="0,0,5,0" Height="25"/>
             <Button Command="{Binding TerugCommand}" FontSize="20" Grid.Column="0" Grid.Row="8" Content="Terug" Margin="0,0,5,0"/>
             <Button FontSize="20" Grid.Column="1" Grid.Row="8" Content="Afrekenen" Margin="0,0,5,0" />
 
         </Grid>
-        <Grid Name="Producten" Grid.Row="2" Grid.Column="1" Margin="5.4,5.8,3.2,5.4" >
+        <Grid Name="Producten" Grid.Row="2" Grid.Column="1" Margin="5,6,3,0" Grid.RowSpan="2" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -93,26 +93,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <!--<Button Style="{StaticResource ProcuctChoice}" Grid.Column="0" Grid.Row="0" Content="Product"/>
-            <Button Style="{StaticResource ProcuctChoice}" Grid.Column="1" Grid.Row="0" Content="Product"/>
-            <Button Style="{StaticResource ProcuctChoice}" Grid.Column="2" Grid.Row="0" Content="Product"/>
-            <Button Style="{StaticResource ProcuctChoice}" Grid.Column="3" Grid.Row="0" Content="Product"/>
-            <Button Style="{StaticResource ProcuctChoice}" Grid.Column="0" Grid.Row="1" Content="Product"/>
-            <Button Style="{StaticResource ProcuctChoice}" Grid.Column="1" Grid.Row="1" Content="Product"/>
-            <Button Style="{StaticResource ProcuctChoice}" Grid.Column="2" Grid.Row="1" Content="Product"/>
-            <Button Style="{StaticResource ProcuctChoice}" Grid.Column="3" Grid.Row="1" Content="Product"/>
-            <Button Style="{StaticResource ProcuctChoice}" Grid.Column="0" Grid.Row="2" Content="Product"/>
-            <Button Style="{StaticResource ProcuctChoice}" Grid.Column="1" Grid.Row="2" Content="Product"/>
-            <Button Style="{StaticResource ProcuctChoice}" Grid.Column="2" Grid.Row="2" Content="Product"/>
-            <Button Style="{StaticResource ProcuctChoice}" Grid.Column="3" Grid.Row="2" Content="Product"/>
-            <Button Style="{StaticResource ProcuctChoice}" Grid.Column="0" Grid.Row="3" Content="Product"/>
-            <Button Style="{StaticResource ProcuctChoice}" Grid.Column="1" Grid.Row="3" Content="Product"/>
-            <Button Style="{StaticResource ProcuctChoice}" Grid.Column="2" Grid.Row="3" Content="Product"/>
-            <Button Style="{StaticResource ProcuctChoice}" Grid.Column="3" Grid.Row="3" Content="Product"/>
-            <Button Style="{StaticResource ProcuctChoice}" Grid.Column="0" Grid.Row="4" Content="Product"/>
-            <Button Style="{StaticResource ProcuctChoice}" Grid.Column="1" Grid.Row="4" Content="Product"/>
-            <Button Style="{StaticResource ProcuctChoice}" Grid.Column="2" Grid.Row="4" Content="Product"/>
-            <Button Style="{StaticResource ProcuctChoice}" Grid.Column="3" Grid.Row="4" Content="Product"/>-->
+           
             <ListBox SelectedItem="{Binding SelectedProduct}" ItemsSource="{Binding Products}" ItemsPanel="{StaticResource PanelTemplate}" ItemTemplate="{StaticResource ProductTemplate}" Grid.ColumnSpan="4" Margin="0,0,0,10" Grid.RowSpan="5">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
@@ -122,6 +103,6 @@
             </ListBox>
         </Grid>
 
-        <TextBlock Style="{StaticResource TextblockStyle}" Grid.Column="3" Grid.Row="1" Text="Klant gegevens:" Height="16" Margin="0.6,30.8,0,33.2" />
+        <TextBlock Style="{StaticResource TextblockStyle}" Grid.Column="3" Grid.Row="1" Text="Klant gegevens:" Height="26" Margin="1,31,0,23" />
     </Grid>
 </UserControl>

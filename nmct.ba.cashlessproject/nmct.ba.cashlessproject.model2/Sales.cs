@@ -16,44 +16,65 @@ namespace nmct.ba.cashlessproject.model
             set { _ID = value; }
         }
 
-        private string _Timestamp;
+        private DateTime _Timestamp;
 
-        public string Timestamp
+        public DateTime Timestamp
         {
             get { return _Timestamp; }
             set { _Timestamp = value; }
         }
 
-        private Customers _CustomerID;
+        private int _CustomerID;
 
-        public Customers CustomerID
+        public int CustomerID
         {
             get { return _CustomerID; }
             set { _CustomerID = value; }
         }
 
-        private Registers _RegisterID;
+        private int _RegisterID;
 
-        public Registers RegisterID
+        public int RegisterID
         {
             get { return _RegisterID; }
             set { _RegisterID = value; }
         }
 
-        private Products _ProductID;
+        private string _RegisterName;
+        public string RegisterName
+        {
+            get { return _RegisterName; }
+            set { _RegisterName = value; }
+        }
 
-        public Products ProductID
+        private int _ProductID;
+
+        public int ProductID
         {
             get { return _ProductID; }
             set { _ProductID = value; }
         }
 
-        private int _Amount;
+        private string _ProductName;
+        public string ProductName
+        {
+            get { return _ProductName; }
+            set { _ProductName = value; }
+        }
 
+
+        private int _Amount;
         public int Amount
         {
             get { return _Amount; }
             set { _Amount = value; }
+        }
+
+        private double _price;
+        public double Price
+        {
+            get { return _price; }
+            set { _price = value; }
         }
 
         private double _TotalPrice;

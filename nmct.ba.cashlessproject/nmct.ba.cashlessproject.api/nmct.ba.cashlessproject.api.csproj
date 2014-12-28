@@ -215,6 +215,7 @@
     <Compile Include="Controllers\KlantController.cs" />
     <Compile Include="Controllers\MedewerkerController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\SaleController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DataAccess\Database.cs" />
     <Compile Include="Global.asax.cs">
@@ -226,6 +227,7 @@
     <Compile Include="Helper\DAmedewerker.cs" />
     <Compile Include="Helper\DAorganisations.cs" />
     <Compile Include="Helper\DAproduct.cs" />
+    <Compile Include="Helper\DAsale.cs" />
     <Compile Include="Helper\Database.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -305,6 +307,7 @@
     <Folder Include="Views\Klant\" />
     <Folder Include="Views\Medewerker\" />
     <Folder Include="Views\Product\" />
+    <Folder Include="Views\Sale\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

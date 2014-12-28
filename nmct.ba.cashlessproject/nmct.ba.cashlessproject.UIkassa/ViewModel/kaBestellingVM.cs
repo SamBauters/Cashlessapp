@@ -79,10 +79,10 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
             appvm.ChangePage(new kaInlogVM());
         }
 
-        public ICommand AddProductCommand
+       /* public ICommand AddProductCommand
         {
             get { return new RelayCommand(AddProduct); }
-        }
+        }*/
 
         private List<Sales> _bestellingen;
 
@@ -90,13 +90,6 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
         {
             get { return _bestellingen; }
             set { _bestellingen = value; OnPropertyChanged("Bestelling"); }
-        }
-
-        public void AddProduct()
-        {
-            Sales Bestelling = new Sales();
-            Bestelling.Amount = 1;
-            Bestelling.ProductID = SelectedProduct;
         }
     }
 }
