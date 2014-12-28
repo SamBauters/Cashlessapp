@@ -214,6 +214,7 @@
     <Compile Include="Controllers\KassaController.cs" />
     <Compile Include="Controllers\KlantController.cs" />
     <Compile Include="Controllers\MedewerkerController.cs" />
+    <Compile Include="Controllers\OrganisationController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SaleController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -306,6 +307,7 @@
     <Folder Include="Views\Kassa\" />
     <Folder Include="Views\Klant\" />
     <Folder Include="Views\Medewerker\" />
+    <Folder Include="Views\Organisation\" />
     <Folder Include="Views\Product\" />
     <Folder Include="Views\Sale\" />
   </ItemGroup>

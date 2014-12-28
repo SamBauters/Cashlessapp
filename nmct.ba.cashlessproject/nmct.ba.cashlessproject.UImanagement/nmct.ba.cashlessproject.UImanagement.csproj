@@ -95,6 +95,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\mAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\mKassa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -128,6 +132,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Converter\UnixToDateTime.cs" />
+    <Compile Include="Cryptography.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="ViewModel\mAccountVM.cs" />
     <Compile Include="ViewModel\ApplicationVM.cs" />
     <Compile Include="ViewModel\IPage.cs" />
     <Compile Include="ViewModel\mAanmeldenVM.cs" />
@@ -140,6 +148,9 @@
     <Compile Include="ViewModel\PageOneVM.cs" />
     <Compile Include="View\mAanmelden.xaml.cs">
       <DependentUpon>mAanmelden.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\mAccount.xaml.cs">
+      <DependentUpon>mAccount.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\mKassa.xaml.cs">
       <DependentUpon>mKassa.xaml</DependentUpon>

@@ -29,6 +29,9 @@
         <DataTemplate DataType="{x:Type vm:mStatistiekenVM}">
             <v:mStatistieken/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:mAccountVM}">
+            <v:mAccount/>
+        </DataTemplate>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>

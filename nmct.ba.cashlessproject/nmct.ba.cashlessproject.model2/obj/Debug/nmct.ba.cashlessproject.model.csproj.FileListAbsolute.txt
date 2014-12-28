@@ -62,8 +62,6 @@ C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.model
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.model2\bin\Debug\AForge.Video.DirectShow.dll
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.model2\bin\Debug\AForge.Video.dll
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.model2\bin\Debug\AForge.Vision.dll
-C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.model2\bin\Debug\zxing.dll
-C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.model2\bin\Debug\zxing.pdb
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.model2\bin\Debug\AForge.xml
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.model2\bin\Debug\AForge.Controls.xml
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.model2\bin\Debug\AForge.Imaging.xml

@@ -12,6 +12,7 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
     class ApplicationVM : ObservableObject
     {
         public static TokenResponse token = null;
+        public static string username = string.Empty;
         public ApplicationVM()
         {
             Pages.Add(new mAanmeldenVM());
@@ -20,6 +21,7 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
             pages.Add(new mKassaVM());
             pages.Add(new mProductVM());
             pages.Add(new mStatistiekenVM());
+            pages.Add(new mAccountVM());
             CurrentPage = Pages[0];
         }
 
