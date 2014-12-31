@@ -1,18 +1,14 @@
-﻿using DocumentFormat.OpenXml;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Net.Http;
+using System.Windows;
+using System.Windows.Input;
+using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
 using GalaSoft.MvvmLight.Command;
-using Newtonsoft.Json;
 using nmct.ba.cashlessproject.model;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Input;
+using Newtonsoft.Json;
 
 namespace nmct.ba.cashlessproject.UImanagement.ViewModel
 {
@@ -133,7 +129,7 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
             }
         }
 
-        private Boolean _vanChanged = false;
+        private Boolean _vanChanged;
         public Boolean VanChanged
         {
             get { return _vanChanged; }
@@ -144,7 +140,7 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
             }
         }
 
-        private Boolean _totChanged = false;
+        private Boolean _totChanged;
         public Boolean TotChanged
         {
             get { return _totChanged; }
@@ -215,7 +211,7 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
             ShowSales = new ObservableCollection<Sales>();
             DateTime standardDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
 
-            if (VanChanged == true && TotChanged == true && SelectedRegister != null && SelectedRegister.ID > 0 && SelectedProduct != null && SelectedProduct.ID > 0)
+            if (VanChanged && TotChanged == true && SelectedRegister != null && SelectedRegister.ID > 0 && SelectedProduct != null && SelectedProduct.ID > 0)
             {
                 foreach (Sales s in Sales)
                 {
@@ -224,7 +220,7 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
                 }
             }
 
-            if (VanChanged == true && TotChanged == true && SelectedRegister != null && SelectedRegister.ID > 0 && (SelectedProduct == null || SelectedProduct.ID == 0))
+            if (VanChanged && TotChanged == true && SelectedRegister != null && SelectedRegister.ID > 0 && (SelectedProduct == null || SelectedProduct.ID == 0))
             {
                 foreach (Sales s in Sales)
                 {
@@ -233,7 +229,7 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
                 }
             }
 
-            if (VanChanged == true && TotChanged == true && (SelectedRegister == null || SelectedRegister.ID == 0) && SelectedProduct != null && SelectedProduct.ID > 0)
+            if (VanChanged && TotChanged == true && (SelectedRegister == null || SelectedRegister.ID == 0) && SelectedProduct != null && SelectedProduct.ID > 0)
             {
                 foreach (Sales s in Sales)
                 {
@@ -251,7 +247,7 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
                 }
             }
 
-            if (VanChanged == true && TotChanged == true && (SelectedRegister == null || SelectedRegister.ID == 0) && (SelectedProduct == null || SelectedProduct.ID == 0))
+            if (VanChanged && TotChanged == true && (SelectedRegister == null || SelectedRegister.ID == 0) && (SelectedProduct == null || SelectedProduct.ID == 0))
             {
                 foreach (Sales s in Sales)
                 {

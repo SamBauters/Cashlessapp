@@ -1,15 +1,12 @@
-﻿using GalaSoft.MvvmLight.Command;
-using Newtonsoft.Json;
-using nmct.ba.cashlessproject.model;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using GalaSoft.MvvmLight.Command;
+using nmct.ba.cashlessproject.model;
+using Newtonsoft.Json;
 
 namespace nmct.ba.cashlessproject.UIkassa.ViewModel
 {
@@ -174,7 +171,6 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
         }
         #endregion
 
-        //Medewerkers ophalen
         private async void GetEmployees()
         {
             using (HttpClient client = new HttpClient())
@@ -186,9 +182,7 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
                     Employees = JsonConvert.DeserializeObject<ObservableCollection<Employee>>(json);
                 }
                 else
-                {
                     MakeErrorLog("Er liep iets fout bij het ophalen van de werknemers.", mname, "GetEmployees");
-                }
             }
         }
 
@@ -224,7 +218,6 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
             }
         }
 
-        //Errorlog aanmaken
         private void MakeErrorLog(string message, string classStackTrace, string methodStackTrace)
         {
             Errorlog errorLog = new Errorlog();
@@ -236,15 +229,13 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
             AddErrorlog(errorLog);
         }
 
-        //Errorlog wegschrijven naar DB
         public async void AddErrorlog(Errorlog e)
         {
             using (HttpClient client = new HttpClient())
             {
                 string errorlog = JsonConvert.SerializeObject(e);
                 HttpResponseMessage response = await
-                    client.PostAsync("http://localhost:1092/api/Errorlog", new StringContent(errorlog,
-                        Encoding.UTF8, "application/json"));
+                    client.PostAsync("http://localhost:1092/api/Errorlog", new StringContent(errorlog, Encoding.UTF8, "application/json"));
                 if (response.IsSuccessStatusCode)
                 {
                     Console.WriteLine("Error added.");
@@ -252,11 +243,10 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
             }
         }
 
-        //DateTime convert to UnixTimeStamp
         private static int DateTimeToUnixTimeStamp(DateTime t)
         {
             var date = new DateTime(1970, 1, 1, 0, 0, 0, t.Kind);
-            var unixTimestamp = System.Convert.ToInt32((t - date).TotalSeconds);
+            var unixTimestamp = Convert.ToInt32((t - date).TotalSeconds);
 
             return unixTimestamp;
         }

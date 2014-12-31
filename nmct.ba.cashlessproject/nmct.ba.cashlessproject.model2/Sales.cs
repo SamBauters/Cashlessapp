@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace nmct.ba.cashlessproject.model
 {
     public class Sales
     {
+        #region props
         private int _ID;
 
         public int ID
@@ -84,5 +81,6 @@ namespace nmct.ba.cashlessproject.model
             get { return _TotalPrice; }
             set { _TotalPrice = value; }
         }
+        #endregion
     }
 }

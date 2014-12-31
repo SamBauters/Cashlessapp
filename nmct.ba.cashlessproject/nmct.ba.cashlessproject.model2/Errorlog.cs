@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace nmct.ba.cashlessproject.model
 {
     public class Errorlog : IDataErrorInfo
     {
+        #region props
         private int _RegisterID;
 
         public int RegisterID
@@ -19,7 +16,7 @@ namespace nmct.ba.cashlessproject.model
         }
 
         private int _TimeStamp;
-
+        [Required(ErrorMessage = "Timestamp is verplicht.")]
         public int TimeStamp
         {
             get { return _TimeStamp; }
@@ -35,12 +32,13 @@ namespace nmct.ba.cashlessproject.model
         }
 
         private string _StackTrace;
-
+        [Required(ErrorMessage = "Stacktrace is verplicht")]
         public string StackTrace
         {
             get { return _StackTrace; }
             set { _StackTrace = value; }
         }
+        #endregion
 
         public bool IsValid()
         {

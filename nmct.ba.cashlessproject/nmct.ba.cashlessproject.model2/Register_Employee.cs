@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace nmct.ba.cashlessproject.model
+﻿namespace nmct.ba.cashlessproject.model
 {
    public class Register_Employee
-    {
-        private Registers _Register;
+   {
+       #region props
+       private Registers _Register;
 
         public Registers Register
         {
@@ -44,5 +39,6 @@ namespace nmct.ba.cashlessproject.model
        {
 
        }
-    }
+       #endregion
+   }
 }

@@ -1,14 +1,12 @@
-﻿using Encrypt;
-using GalaSoft.MvvmLight.Command;
-using Newtonsoft.Json;
-using nmct.ba.cashlessproject.model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+using Encrypt;
+using GalaSoft.MvvmLight.Command;
+using nmct.ba.cashlessproject.model;
+using Newtonsoft.Json;
 
 namespace nmct.ba.cashlessproject.UImanagement.ViewModel
 {
@@ -23,7 +21,7 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
         {
 
         }
-
+        #region props
         public string Username
         {
             get { return ApplicationVM.username; }
@@ -52,6 +50,7 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
             get { return _bevestig; }
             set { _bevestig = value; }
         }
+        #endregion
 
         public ICommand SavePasswordCommand
         {
@@ -74,13 +73,12 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
             using (HttpClient client = new HttpClient())
             {
                 client.SetBearerToken(ApplicationVM.token.AccessToken);
-                HttpResponseMessage response = await client.PutAsync("http://localhost:1092/api/Organisation",
-                    new StringContent(input, Encoding.UTF8, "application/json"));
+                HttpResponseMessage response = await client.PutAsync("http://localhost:1092/api/Organisation", new StringContent(input, Encoding.UTF8, "application/json"));
+
+                MessageBox.Show("Wachtwoord succesvol gewijzigd!");
 
                 if (!response.IsSuccessStatusCode)
-                {
                     Console.WriteLine("Save Organisation Error");
-                }
             }
         }
 
@@ -99,9 +97,7 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
                     if (IsAccount)
                     {
                         if (NieuwWachtwoord.Equals(BevestigWachtwoord))
-                        {
                             ChangePassword();
-                        }
                     }
                 }
             }

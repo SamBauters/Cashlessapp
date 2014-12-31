@@ -1,14 +1,10 @@
-﻿using GalaSoft.MvvmLight.Command;
-using Newtonsoft.Json;
-using System;
-using nmct.ba.cashlessproject.model;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
+﻿using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
+using GalaSoft.MvvmLight.Command;
+using nmct.ba.cashlessproject.model;
+using Newtonsoft.Json;
 
 namespace nmct.ba.cashlessproject.UImanagement.ViewModel
 {
@@ -134,14 +130,9 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
          public void ClickSave()
          {
              if (Status == "Update")
-             {
                  UpdateProduct();
-             }
-
              else if (Status == "Add")
-             {
                  AddProduct();
-             }
          }
 
          public ICommand ClickSaveCommand

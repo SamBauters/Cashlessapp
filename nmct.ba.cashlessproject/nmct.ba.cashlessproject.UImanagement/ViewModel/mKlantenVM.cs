@@ -1,14 +1,10 @@
-﻿using GalaSoft.MvvmLight.Command;
-using Newtonsoft.Json;
-using System;
-using nmct.ba.cashlessproject.model;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
+﻿using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
+using GalaSoft.MvvmLight.Command;
+using nmct.ba.cashlessproject.model;
+using Newtonsoft.Json;
 
 namespace nmct.ba.cashlessproject.UImanagement.ViewModel
 {
@@ -68,9 +64,7 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
                 string input = JsonConvert.SerializeObject(kl);
                 HttpResponseMessage response = await client.PutAsync("http://localhost:1092/api/Klant", new StringContent(input, Encoding.UTF8, "application/json"));
                 if (response.IsSuccessStatusCode)
-                {
                     GetKlanten();
-                }
             }
         }
 
@@ -83,9 +77,7 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
                 string emp = JsonConvert.SerializeObject(newKlant);
                 HttpResponseMessage response = await client.PostAsync("http://localhost:1092/api/Klant", new StringContent(emp, Encoding.UTF8, "application/json"));
                 if (response.IsSuccessStatusCode)
-                {
                     GetKlanten();
-                }
             }
         }
 
@@ -116,14 +108,10 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
         public void ClickSave()
         {
             if (Status == "Update")
-            {
                 UpdateKlant();
-            }
 
             else if (Status == "Add")
-            {
                 AddKlant();
-            }
         }
 
         public ICommand ClickSaveCommand

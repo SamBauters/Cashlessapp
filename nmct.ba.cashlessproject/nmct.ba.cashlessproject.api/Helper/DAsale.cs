@@ -1,10 +1,8 @@
-﻿using nmct.ba.cashlessproject.model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-using System.Linq;
-using System.Web;
+using nmct.ba.cashlessproject.model;
 
 namespace nmct.ba.cashlessproject.api.Helper
 {
@@ -64,7 +62,7 @@ namespace nmct.ba.cashlessproject.api.Helper
         public static DateTime UnixTimeStampToDateTime(int unixTimeStamp)
         {
             // Unix timestamp is seconds past epoch
-            DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+            DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
             dtDateTime = dtDateTime.AddSeconds(unixTimeStamp).ToLocalTime();
             return dtDateTime;
         }
@@ -73,7 +71,7 @@ namespace nmct.ba.cashlessproject.api.Helper
         private static int DateTimeToUnixTimeStamp(DateTime t)
         {
             var date = new DateTime(1970, 1, 1, 0, 0, 0, t.Kind);
-            var unixTimestamp = System.Convert.ToInt32((t - date).TotalSeconds);
+            var unixTimestamp = Convert.ToInt32((t - date).TotalSeconds);
 
             return unixTimestamp;
         }

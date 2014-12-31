@@ -3,9 +3,7 @@ using nmct.ba.cashlessproject.model;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
-using System.Linq;
 using System.Security.Claims;
-using System.Web;
 
 namespace nmct.ba.cashlessproject.api.Helper
 {

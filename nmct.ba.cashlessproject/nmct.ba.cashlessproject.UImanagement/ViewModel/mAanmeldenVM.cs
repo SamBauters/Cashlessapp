@@ -1,13 +1,8 @@
-﻿using GalaSoft.MvvmLight.Command;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
+using GalaSoft.MvvmLight.Command;
 using Thinktecture.IdentityModel.Client;
-using nmct.ba.cashlessproject.model;
 
 namespace nmct.ba.cashlessproject.UImanagement.ViewModel
 {
@@ -18,6 +13,7 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
             get { return "Login"; }
         }
 
+        #region props
         private string _username;
         public string Username
         {
@@ -38,6 +34,7 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
             get { return _error; }
             set { _error = value; OnPropertyChanged("Error"); }
         }
+        #endregion
 
 
         public ICommand LoginCommand
@@ -53,12 +50,11 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
             if (!ApplicationVM.token.IsError)
             {
                 ApplicationVM.username = Username;
-                appvm.ChangePage(new mMedewerkersVM());
+                if (appvm != null) 
+                    appvm.ChangePage(new mMedewerkersVM());
             }
             else
-            {
                 Error = "Gebruikersnaam of paswoord kloppen niet";
-            }
         }
 
         private TokenResponse GetToken()

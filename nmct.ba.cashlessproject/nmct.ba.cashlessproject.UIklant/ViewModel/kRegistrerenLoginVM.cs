@@ -26,6 +26,8 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
             get { return "Registreren met login"; }
         }
 
+        #region Props
+
         private Customers _klant = new Customers();
         public Customers Klant
         {
@@ -102,8 +104,8 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
                 OnPropertyChanged("Registered");
             }
         }
+        #endregion
 
-        //lees info van E-ID
         public ICommand LoadEidCommand
         {
             get { return new RelayCommand(LoadEid); }
@@ -159,7 +161,6 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
 
         }
 
-        //kijk of klant al bestaat
         private async void CheckIfCustomerExists()
         {
             using (HttpClient client = new HttpClient())
@@ -171,9 +172,7 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
                     Customers = JsonConvert.DeserializeObject<ObservableCollection<Customers>>(json);
                 }
                 else
-                {
                     MakeErrorLog("Er liep iets fout met het ophalen van de klanten.", mname, "CheckIfCustomerExists");
-                }
 
                 Customers inDB = null;
                 foreach (Customers c in Customers)
@@ -188,33 +187,24 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
                     Registered = true;
                 }
                 else
-                {
                     AddCustomer();
-                }
             }
         }
 
-        //customer toevoegen
         private async void AddCustomer()
         {
             using (HttpClient client = new HttpClient())
             {
                 string klant = JsonConvert.SerializeObject(Klant);
                 HttpResponseMessage response = await
-                    client.PostAsync("http://localhost:1092/api/Klant", new StringContent(klant,
-                        Encoding.UTF8, "application/json"));
+                    client.PostAsync("http://localhost:1092/api/Klant", new StringContent(klant,Encoding.UTF8, "application/json"));
                 if (response.IsSuccessStatusCode)
-                {
                     Registered = true;
-                }
                 else
-                {
                     MakeErrorLog("Er liep iets mis met het toevoegen van de klant.", mname, "AddCustomer");
-                }
             }
         }
 
-        //inloggen
         public ICommand LogInCommand
         {
             get { return new RelayCommand(LogIn); }
@@ -225,16 +215,11 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
             ApplicationVM appvm = App.Current.MainWindow.DataContext as ApplicationVM;
 
             if (Registered == true)
-            {
                 appvm.ChangePage(new kOpladenVM(Klant));
-            }
             else
-            {
                 MakeErrorLog("Poging tot inloggen zonder kaart te lezen.", mname, "LogIn");
-            }
         }
 
-        //Errorlog aanmaken
         private void MakeErrorLog(string message, string classStackTrace, string methodStackTrace)
         {
             Errorlog errorLog = new Errorlog();
@@ -246,7 +231,6 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
             AddErrorlog(errorLog);
         }
 
-        //Errorlog wegschrijven naar DB
         public async void AddErrorlog(Errorlog e)
         {
             using (HttpClient client = new HttpClient())
@@ -256,13 +240,10 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
                     client.PostAsync("http://localhost:1092/api/Errorlog", new StringContent(errorlog,
                         Encoding.UTF8, "application/json"));
                 if (response.IsSuccessStatusCode)
-                {
                     Console.WriteLine("Error added.");
-                }
             }
         }
 
-        //DateTime convert to UnixTimeStamp
         private static int DateTimeToUnixTimeStamp(DateTime t)
         {
             var date = new DateTime(1970, 1, 1, 0, 0, 0, t.Kind);

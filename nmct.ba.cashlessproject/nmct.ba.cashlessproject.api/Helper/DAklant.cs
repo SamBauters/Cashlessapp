@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using nmct.ba.cashlessproject.model;
+using System.Configuration;
 using System.Data;
 using System.Data.Common;
-using System.Configuration;
+using System.Linq;
 using System.Security.Claims;
+using nmct.ba.cashlessproject.model;
 
 namespace nmct.ba.cashlessproject.api.Helper
 {

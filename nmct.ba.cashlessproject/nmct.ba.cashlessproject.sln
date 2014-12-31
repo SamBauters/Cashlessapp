@@ -13,24 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nmct.ba.cashlessproject.UIk
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nmct.ba.cashlessproject.UIkassa", "nmct.ba.cashlessproject.UIkassa\nmct.ba.cashlessproject.UIkassa.csproj", "{120EA342-CA49-449C-AE4E-3A97E2BBCBD3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External libs", "External libs", "{1758B845-49D9-4990-A87D-4CD2376A1633}"
-	ProjectSection(SolutionItems) = preProject
-		..\windowqr_c5af0bb2fbba\external libs\AForge.Controls.dll = ..\windowqr_c5af0bb2fbba\external libs\AForge.Controls.dll
-		..\windowqr_c5af0bb2fbba\external libs\AForge.Controls.xml = ..\windowqr_c5af0bb2fbba\external libs\AForge.Controls.xml
-		..\windowqr_c5af0bb2fbba\external libs\AForge.dll = ..\windowqr_c5af0bb2fbba\external libs\AForge.dll
-		..\windowqr_c5af0bb2fbba\external libs\AForge.Imaging.dll = ..\windowqr_c5af0bb2fbba\external libs\AForge.Imaging.dll
-		..\windowqr_c5af0bb2fbba\external libs\AForge.Imaging.xml = ..\windowqr_c5af0bb2fbba\external libs\AForge.Imaging.xml
-		..\windowqr_c5af0bb2fbba\external libs\AForge.Math.dll = ..\windowqr_c5af0bb2fbba\external libs\AForge.Math.dll
-		..\windowqr_c5af0bb2fbba\external libs\AForge.Math.xml = ..\windowqr_c5af0bb2fbba\external libs\AForge.Math.xml
-		..\windowqr_c5af0bb2fbba\external libs\AForge.Video.DirectShow.dll = ..\windowqr_c5af0bb2fbba\external libs\AForge.Video.DirectShow.dll
-		..\windowqr_c5af0bb2fbba\external libs\AForge.Video.DirectShow.xml = ..\windowqr_c5af0bb2fbba\external libs\AForge.Video.DirectShow.xml
-		..\windowqr_c5af0bb2fbba\external libs\AForge.Video.dll = ..\windowqr_c5af0bb2fbba\external libs\AForge.Video.dll
-		..\windowqr_c5af0bb2fbba\external libs\AForge.Video.xml = ..\windowqr_c5af0bb2fbba\external libs\AForge.Video.xml
-		..\windowqr_c5af0bb2fbba\external libs\AForge.Vision.dll = ..\windowqr_c5af0bb2fbba\external libs\AForge.Vision.dll
-		..\windowqr_c5af0bb2fbba\external libs\AForge.Vision.xml = ..\windowqr_c5af0bb2fbba\external libs\AForge.Vision.xml
-		..\windowqr_c5af0bb2fbba\external libs\AForge.xml = ..\windowqr_c5af0bb2fbba\external libs\AForge.xml
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

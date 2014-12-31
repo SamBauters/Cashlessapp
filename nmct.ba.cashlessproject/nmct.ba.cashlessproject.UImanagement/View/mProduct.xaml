@@ -40,8 +40,8 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="0" Text="Productnaam:" VerticalAlignment="Center"  Margin="0,23,450,22.8" Grid.ColumnSpan="2" Height="19" />
-            <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="1" Text="Prijs in euro:" VerticalAlignment="Center"  Margin="0,23.2,450,22.6" Grid.ColumnSpan="2" Height="19"  />
+            <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="0" Text="Productnaam:" Margin="0,23,450,22.8" Grid.ColumnSpan="2" Height="19" />
+            <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="1" Text="Prijs in euro:"  Margin="0,23.2,450,22.6" Grid.ColumnSpan="2" Height="19"  />
             <TextBox x:Name="txtProductnaam" Style="{StaticResource TextBoxStyle}" Text="{Binding SelectedProduct.ProductName}" Grid.Column="1" Grid.Row="0" Height="25"/>
             <TextBox x:Name="txtPrijs" Style="{StaticResource TextBoxStyle}"  Text="{Binding SelectedProduct.Price}" Grid.Column="1" Grid.Row="1" Height="25"/>
         </Grid>

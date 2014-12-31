@@ -1,43 +1,11 @@
 ﻿<UserControl x:Class="nmct.ba.cashlessproject.UImanagement.View.mStatistieken"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:vm="clr-namespace:nmct.ba.cashlessproject.UImanagement.ViewModel"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1200">
     <UserControl.Resources>
-        <Style x:Key="ListboxStyleMetTitelRechts" TargetType="{x:Type ListBox}">
-            <Setter Property="Margin" Value="0, 50, 10, 10" />
-        </Style>
-        <Style x:Key="ListGridViewColumnHeaderStyle" TargetType="{x:Type GridViewColumnHeader}">
-            <Setter Property="FontSize" Value="18" />
-        </Style>
-        <Style x:Key="StandardStyle" TargetType="{x:Type Control}">
-            <Setter Property="FontSize" Value="22" />
-            <Setter Property="VerticalAlignment" Value="Stretch" />
-            <Setter Property="HorizontalAlignment" Value="Stretch" />
-            <Setter Property="Margin" Value="10" />
-        </Style>
-        <Style x:Key="LabelStyleLogin" BasedOn="{StaticResource StandardStyle}" TargetType="{x:Type Label}">
-            <Setter Property="FontSize" Value="24" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="Margin" Value="5" />
-        </Style>
-        <Style x:Key="LabelStyleIngelogd" BasedOn="{StaticResource LabelStyleLogin}" TargetType="{x:Type Label}">
-            <Setter Property="FontSize" Value="20" />
-            <Setter Property="HorizontalAlignment" Value="Left" />
-        </Style>
-        <Style x:Key="LabelStyleTitel" BasedOn="{StaticResource LabelStyleIngelogd}" TargetType="{x:Type Label}">
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="Margin" Value="0, 0, 0, 10" />
-            <Setter Property="FontSize" Value="24" />
-            <Setter Property="FontWeight" Value="Medium" />
-        </Style>
-        <Style x:Key="LabelStyleTotaal" BasedOn="{StaticResource LabelStyleTitel}" TargetType="{x:Type Label}">
-            <Setter Property="Margin" Value="0" />
-        </Style>
     </UserControl.Resources>
     <!--<UserControl.DataContext>
         <vm:mStatistiekenVM/>
@@ -76,8 +44,8 @@
             <ComboBox Style="{StaticResource ComboboxStyle}" Name="cboKassa" Grid.Row="1" Height="25" ItemsSource="{Binding Registers}" DisplayMemberPath="RegisterName" SelectedItem="{Binding SelectedRegister}"/>
             <DatePicker Style="{StaticResource DatePickerStyle}" x:Name="dpVan" Grid.Row="5" Height="25" SelectedDate="{Binding Van}"/>
             <DatePicker Style="{StaticResource DatePickerStyle}"  x:Name="dpTot" Grid.Row="7" Height="25" SelectedDate="{Binding Tot}"/>
-            <TextBlock Style="{StaticResource TextBlockStyle}" Text="Van: " Grid.Row="4" VerticalAlignment="Center"/>
-            <TextBlock Style="{StaticResource TextBlockStyle}" Text="Tot: " Grid.Row="6" VerticalAlignment="Center"/>
+            <TextBlock Style="{StaticResource TextBlockStyle}" Text="Van: " Grid.Row="4" />
+            <TextBlock Style="{StaticResource TextBlockStyle}" Text="Tot: " Grid.Row="6"/>
             <Button x:Name="Btnzoeken" Style="{StaticResource ButtonStyle}" Grid.Row="8" Content="Zoeken" Command="{Binding SearchStatsCommand}" Margin="0,12,278.4,13"/>
             <Button x:Name="btnExporteren" Style="{StaticResource ButtonStyle}" Grid.Row="8" Content="Exporteren" Margin="250,12,28.4,13" Command="{Binding ExportToExcelCommand}"/>
             <ComboBox Style="{StaticResource ComboboxStyle}" x:Name="cboProduct" Grid.Row="3" Height="25" ItemsSource="{Binding Products}" DisplayMemberPath="ProductName" SelectedItem="{Binding SelectedProduct}"/>

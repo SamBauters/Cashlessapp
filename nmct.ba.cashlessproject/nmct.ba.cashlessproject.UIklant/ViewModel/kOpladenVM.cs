@@ -30,6 +30,7 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
         {
             
         }
+#region Props
 
         private string _klantName;
         public string KlantName
@@ -97,8 +98,8 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
                 OnPropertyChanged("Updated");
             }
         }
-
-        //5euro
+#endregion
+        #region Geldknoppen
         public ICommand Add5EuroCommand
         {
             get { return new RelayCommand(Add5Euro); }
@@ -110,10 +111,12 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
             {
                 Bedrag += 5;
                 NieuwSaldo += 5;
-            }               
+            }
+            else
+                MessageBox.Show("Je kan maar maximum 100 euro per keer opladen.");         
         }
 
-        //10euro
+
         public ICommand Add10EuroCommand
         {
             get { return new RelayCommand(Add10Euro); }
@@ -126,9 +129,10 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
                 Bedrag += 10;
                 NieuwSaldo += 10;
             }
+            else
+                MessageBox.Show("Je kan maar maximum 100 euro per keer opladen.");    
         }
 
-        //20euro
         public ICommand Add20EuroCommand
         {
             get { return new RelayCommand(Add20Euro); }
@@ -141,9 +145,10 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
                 Bedrag += 20;
                 NieuwSaldo += 20;
             }
+            else
+                MessageBox.Show("Je kan maar maximum 100 euro per keer opladen.");    
         }
 
-        //50euro
         public ICommand Add50EuroCommand
         {
             get { return new RelayCommand(Add50Euro); }
@@ -156,9 +161,12 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
                 Bedrag += 50;
                 NieuwSaldo += 50;
             }
+            else
+                MessageBox.Show("Je kan maar maximum 100 euro per keer opladen.");    
         }
+#endregion
 
-        //Annuleer
+
         public ICommand AnnuleerCommand
         {
             get { return new RelayCommand(Annuleer); }
@@ -170,7 +178,6 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
             NieuwSaldo = Klant.Balance;
         }
 
-        //update customer
         public ICommand UpdateCustomerCommand
         {
             get { return new RelayCommand(UpdateCustomer); }
@@ -197,18 +204,13 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
                         Updated = false;
                     }
                     else
-                    {
-                        MakeErrorLog("Er liep iets fout met het updaten van het saldo van de klant", mname, "UpdateCustomer");
-                    }
+                        MakeErrorLog("Er liep iets fout met het updaten van het saldo", mname, "UpdateCustomer");
                 }
             }
             else
-            {
-                MakeErrorLog("Klant" + Klant.CustomerName + "heeft geprobeerd om voor de 2de maal geld op te laden.", mname, "UpdateCustomer");
-            }          
+                MakeErrorLog("Klant" + Klant.CustomerName + "heeft geprobeerd om voor de 2de maal proberen opladen.", mname, "UpdateCustomer");      
         }
 
-        //Klanten ophalen
         private async void GetCustomer()
         {
             using (HttpClient client = new HttpClient())
@@ -227,22 +229,14 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
                     }
 
                     if (inDB != null)
-                    {
                         Klant = inDB;
-                    }
                     else
-                    {
-                        MakeErrorLog("Klant moet zich nog registreren", mname, "GetCustomer");
-                    }
+                        MakeErrorLog("Klant is nog niet geregistreerd", mname, "GetCustomer");
                 }
                 else
-                {
                     MakeErrorLog("Er liep iets fout bij het ophalen van de klant uit de DB", mname, "GetCustomer");
-                }
             }
         }
-
-        //afmelden
         public ICommand AfmeldenCommand
         {
             get { return new RelayCommand(Afmelden); }
@@ -254,7 +248,6 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
             appvm.ChangePage(new kRegistrerenLoginVM());
         }
 
-        //Errorlog aanmaken
         private void MakeErrorLog(string message, string classStackTrace, string methodStackTrace)
         {
             Errorlog errorLog = new Errorlog();
@@ -266,7 +259,6 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
             AddErrorlog(errorLog);
         }
 
-        //Errorlog wegschrijven naar DB
         public async void AddErrorlog(Errorlog e)
         {
             using (HttpClient client = new HttpClient())
@@ -276,13 +268,10 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
                     client.PostAsync("http://localhost:1092/api/Errorlog", new StringContent(errorlog,
                         Encoding.UTF8, "application/json"));
                 if (response.IsSuccessStatusCode)
-                {
                     Console.WriteLine("Error added.");
-                }
             }
         }
 
-        //DateTime convert to UnixTimeStamp
         private static int DateTimeToUnixTimeStamp(DateTime t)
         {
             var date = new DateTime(1970, 1, 1, 0, 0, 0, t.Kind);

@@ -1,22 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using nmct.ba.cashlessproject.model;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GalaSoft.MvvmLight.Command;
-using System.Windows.Input;
 using System.Net.Http;
-using Newtonsoft.Json;
+using System.Text;
 using System.Windows;
+using System.Windows.Input;
 using be.belgium.eid;
+using GalaSoft.MvvmLight.Command;
+using nmct.ba.cashlessproject.model;
+using Newtonsoft.Json;
 
 namespace nmct.ba.cashlessproject.UIkassa.ViewModel
 {
     class kaBestellingVM : ObservableObject, IPage
     {
-           int registerID = 4;
+        int registerID = 4;
         string mname = "BestellingVM";
 
         public string Name
@@ -177,8 +174,6 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
             }
         }
         
-        
-        //Products ophalen
         private async void GetProducts()
         {
             using (HttpClient client = new HttpClient())
@@ -196,7 +191,6 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
             }
         }
 
-        //verhoog aantal
         public ICommand VerhoogAantalCommand
         {
             get { return new RelayCommand(VerhoogAantal); }
@@ -207,7 +201,6 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
             Aantal++;
         }
 
-        //verminder aantal
         public ICommand VerminderAantalCommand
         {
             get { return new RelayCommand(VerminderAantal); }
@@ -219,7 +212,6 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
                 Aantal--;
         }
 
-        //voeg toe aan lijst
         public ICommand VoegToeAanBestellingCommand
         {
             get { return new RelayCommand(VoegToeAanBestelling); }
@@ -259,13 +251,10 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
                     Register = JsonConvert.DeserializeObject<Registers>(json);
                 }
                 else
-                {
                     MakeErrorLog("Kassa kon niet worden opgevraagd aan de hand van RegisterID", mname, "GetRegisterByID");
-                }
             }
         } 
 
-        //totaal berekenen
         void BerekenTotaal()
         {
             Totaal = 0;
@@ -274,7 +263,6 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
                 Totaal += s.TotalPrice;
         }
 
-        //verwijder uit lijst van bestellingen
         public ICommand VerwijderUitLijstCommand
         {
             get { return new RelayCommand(VerwijderUitLijst); }
@@ -283,18 +271,13 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
         private void VerwijderUitLijst()
         {
             if (SelectedSale != null)
-            {
                 Sales.Remove(SelectedSale);
-            }
             else
-            {
                 MakeErrorLog("Sale uit lijst proberen verwijderen zonder Sale te selecteren", mname, "VerwijderUitLijst");
-            }
                 
             BerekenTotaal();
         }
 
-        //insert into database
         public ICommand InsertIntoDBCommand
         {
             get { return new RelayCommand(InsertIntoDB); }
@@ -341,7 +324,6 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
 
         private async void UpdateCustomer()
         {
-            //AAN TE PASSEN
             Customers c = Klant;
             c.Balance -= Totaal;
 
@@ -356,13 +338,10 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
                     GetCustomer();
                 }
                 else
-                {
                     MakeErrorLog("Kon klant niet updaten", mname, "UpdateCustomer");
-                }
             }
         }
 
-        //E-ID info inladen
         public ICommand LoadEidCommand
         {
             get { return new RelayCommand(LoadEid); }
@@ -407,7 +386,6 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
             }
         }
 
-        //Klanten ophalen
         private async void GetCustomer()
         {
             using (HttpClient client = new HttpClient())
@@ -455,10 +433,7 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
                 }
             }
             else
-            {
                 MakeErrorLog("Geen E-ID aanwezig.", mname, "ControleerPrijs");
-            }
-
         }
 
         private void LogOut()
@@ -493,7 +468,6 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
             }
         }
 
-        //Errorlog aanmaken
         private void MakeErrorLog(string message, string classStackTrace, string methodStackTrace)
         {
             Errorlog errorLog = new Errorlog();
@@ -505,7 +479,6 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
             AddErrorlog(errorLog);
         }
 
-        //Errorlog wegschrijven naar DB
         public async void AddErrorlog(Errorlog e)
         {
             using (HttpClient client = new HttpClient())
@@ -521,11 +494,10 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
             }
         }
 
-        //DateTime convert to UnixTimeStamp
         private static int DateTimeToUnixTimeStamp(DateTime t)
         {
             var date = new DateTime(1970, 1, 1, 0, 0, 0, t.Kind);
-            var unixTimestamp = System.Convert.ToInt32((t - date).TotalSeconds);
+            var unixTimestamp = Convert.ToInt32((t - date).TotalSeconds);
 
             return unixTimestamp;
         }

@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace nmct.ba.cashlessproject.model
 {
-   public class Customers
-    {
-        private int _ID;
+   public class Customers : IDataErrorInfo
+   {
+       #region props
+       private int _ID;
 
         public int ID
         {
@@ -18,6 +16,8 @@ namespace nmct.ba.cashlessproject.model
         }
 
         private string _CustomerName;
+        [Required(ErrorMessage = "Naam is verplicht")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "De naam moet tussen de 3 en 50 karakters bevatten.")]
 
         public string CustomerName
         {
@@ -47,6 +47,34 @@ namespace nmct.ba.cashlessproject.model
         {
             get { return _Balance; }
             set { _Balance = value; }
+        }
+       #endregion
+
+        public bool IsValid()
+        {
+            return Validator.TryValidateObject(this, new ValidationContext(this, null, null), null, true);
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                try
+                {
+                    object value = this.GetType().GetProperty(columnName).GetValue(this);
+                    Validator.ValidateProperty(value, new ValidationContext(this, null, null) { MemberName = columnName });
+                }
+                catch (ValidationException ex)
+                {
+                    return ex.Message;
+                }
+                return String.Empty;
+            }
+        }
+
+        public string Error
+        {
+            get { return null; }
         }
     }
 }
