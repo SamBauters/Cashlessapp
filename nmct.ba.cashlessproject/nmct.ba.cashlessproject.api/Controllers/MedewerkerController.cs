@@ -14,6 +14,7 @@ namespace nmct.ba.cashlessproject.api.Controllers
     public class MedewerkerController : ApiController
     {
            
+         [AllowAnonymous]
         public List<Employee> Get()
         {
             ClaimsPrincipal p = RequestContext.Principal as ClaimsPrincipal;

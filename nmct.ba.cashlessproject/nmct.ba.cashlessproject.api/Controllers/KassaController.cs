@@ -20,11 +20,19 @@ namespace nmct.ba.cashlessproject.api.Controllers
             return DAkassaMngmt.GetKassasManagement(p.Claims);
         }
 
+       [AllowAnonymous]
+       public Registers Get(int id)
+       {
+           return DAkassaMngmt.GetRegisterById(id);
+       }
+
         public HttpResponseMessage Put(Registers kl)
         {
             ClaimsPrincipal p = RequestContext.Principal as ClaimsPrincipal;
             DAkassaMngmt.UpdateAccount(kl, p.Claims);
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
+
+
     }
 }

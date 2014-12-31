@@ -14,9 +14,6 @@
         <DataTemplate DataType="{x:Type vm:kaInlogVM}">
             <v:kaInlog/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type vm:kaScanVM}">
-            <v:kaScan/>
-        </DataTemplate>
         <DataTemplate DataType="{x:Type vm:kaBestellingVM}">
             <v:kaBestelling/>
         </DataTemplate>

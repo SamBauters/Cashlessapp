@@ -57,7 +57,7 @@ namespace nmct.ba.cashlessproject.api.Helper
             Database.ModifyData(Database.GetConnection("KlantDB"), sql, par1, par2, par3);
         }
 
-        public static Registers GetRegisterById(int id, IEnumerable<Claim> claims)
+        public static Registers GetRegisterById(int id)
         {
             Registers r = new Registers();
             string sql = "SELECT * FROM Registers WHERE ID=@ID";

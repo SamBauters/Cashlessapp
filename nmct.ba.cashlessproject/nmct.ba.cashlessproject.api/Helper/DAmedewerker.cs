@@ -63,7 +63,7 @@ namespace nmct.ba.cashlessproject.api.Helper
 
                 Employee e = GetEmployeeById(employeeID);
 
-                re.Register = DAkassaMngmt.GetRegisterById(rId, claims);
+                re.Register = DAkassaMngmt.GetRegisterById(rId);
                 re.Employee = e;
                 re.From = from;
                 re.Until = until;

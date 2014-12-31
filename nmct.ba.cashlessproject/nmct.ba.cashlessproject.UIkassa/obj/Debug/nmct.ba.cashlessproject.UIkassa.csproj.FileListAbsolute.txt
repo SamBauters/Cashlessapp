@@ -137,7 +137,6 @@ C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIkas
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIkassa\obj\Debug\App.baml
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIkassa\obj\Debug\View\kaBestelling.g.cs
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIkassa\obj\Debug\View\kaInlog.g.cs
-C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIkassa\obj\Debug\View\kaScan.g.cs
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIkassa\obj\Debug\View\PageOne.g.cs
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIkassa\obj\Debug\View\MainWindow.g.cs
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIkassa\obj\Debug\App.g.cs
@@ -146,7 +145,6 @@ C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIkas
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIkassa\obj\Debug\nmct.ba.cashlessproject.UIkassa_MarkupCompile.lref
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIkassa\obj\Debug\View\kaBestelling.baml
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIkassa\obj\Debug\View\kaInlog.baml
-C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIkassa\obj\Debug\View\kaScan.baml
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIkassa\obj\Debug\View\PageOne.baml
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIkassa\obj\Debug\View\MainWindow.baml
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIkassa\obj\Debug\nmct.ba.cashlessproject.UIkassa.g.resources
@@ -154,3 +152,6 @@ C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIkas
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIkassa\obj\Debug\nmct.ba.cashlessproject.UIkassa.csproj.GenerateResource.Cache
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIkassa\obj\Debug\nmct.ba.cashlessproject.UIkassa.exe
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIkassa\obj\Debug\nmct.ba.cashlessproject.UIkassa.pdb
+C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIkassa\bin\Debug\Converter\StringToImageConverter.cs
+C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIkassa\bin\Debug\beid35libCS.dll
+C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIkassa\bin\Debug\beid35libCS.xml

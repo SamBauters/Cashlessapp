@@ -6,7 +6,7 @@
              xmlns:vm="clr-namespace:nmct.ba.cashlessproject.UIklant.ViewModel"
              xmlns:c="clr-namespace:nmct.ba.cashlessproject.UIklant.Converter"
              mc:Ignorable="d" 
-             d:DesignHeight="720" d:DesignWidth="1280" Loaded="UserControl_Loaded">
+             d:DesignHeight="700" d:DesignWidth="1280" Loaded="UserControl_Loaded">
     <!--<UserControl.DataContext>
         <vm:kOpladenVM/>
     </UserControl.DataContext>-->

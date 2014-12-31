@@ -24,5 +24,16 @@ namespace nmct.ba.cashlessproject.UIkassa.View
         {
             InitializeComponent();
         }
+
+        private void DisableControls()
+        {
+            txtProduct.IsEnabled = false;
+            txtAantal.IsEnabled = false;
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            DisableControls();
+        }
     }
 }
