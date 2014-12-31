@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace nmct.ba.cashlessproject.UIklant.ViewModel
@@ -20,8 +21,14 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
         {
             get { return "Opladen"; }
         }
+        public kOpladenVM(Customers customers)
+        {
+            Klant = customers;
+        }
+
         public kOpladenVM()
         {
+            
         }
 
         private string _klantName;
@@ -185,7 +192,9 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
                     {
                         Bedrag = 0;
                         Updated = true;
+                        MessageBox.Show("Bedankt voor je herlaadbeurt!");
                         GetCustomer();
+                        Updated = false;
                     }
                     else
                     {

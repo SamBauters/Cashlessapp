@@ -18,6 +18,7 @@ namespace nmct.ba.cashlessproject.api.Controllers
         {
             return DAklant.GetKlanten();
         }
+            [AllowAnonymous]
         public HttpResponseMessage Put(Customers kl)
         {
             DAklant.UpdateAccount(kl);

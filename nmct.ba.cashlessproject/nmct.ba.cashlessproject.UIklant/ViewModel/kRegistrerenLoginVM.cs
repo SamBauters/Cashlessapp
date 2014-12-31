@@ -226,9 +226,7 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
 
             if (Registered == true)
             {
-                kOpladenVM opladen = new kOpladenVM();
-                opladen.Klant = Klant;
-                appvm.ChangePage(opladen);
+                appvm.ChangePage(new kOpladenVM(Klant));
             }
             else
             {

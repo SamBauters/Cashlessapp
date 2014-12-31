@@ -15,7 +15,7 @@ namespace nmct.ba.cashlessproject.UIklant.ViewModel
         public ApplicationVM()
         {
             Pages.Add(new kRegistrerenLoginVM());
-            Pages.Add(new kOpladenVM());
+            //Pages.Add(new kOpladenVM());
             CurrentPage = Pages[0];
         }
 

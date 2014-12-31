@@ -72,8 +72,8 @@
             <TextBox x:Name="txtBedrag" Text="{Binding Bedrag}" Grid.Column="1" Grid.Row="2" Height="25" Margin="73,29,10,29"/>
             <TextBlock x:Name="lblNieuwSaldo" Style="{StaticResource TextBlockStyle}" Grid.Row="4" Text="Nieuw saldo:" Margin="0,33,75,29" Height="22" />
             <TextBox x:Name="txtNieuwSaldo" Text="{Binding NieuwSaldo}" Grid.Column="1" Grid.Row="4" Margin="73,29,10,29"/>
-            <Button x:Name="btnAnnuleer" Grid.Row="5" Style="{StaticResource ButtonStyle}" Command="{Binding AnnuleerCommand}">Annuleer</Button>
-            <Button x:Name="btnOK" Grid.Column="1" Grid.Row="5" Style="{StaticResource ButtonStyle}" Command="{Binding UpdateCustomerCommand}">OK</Button>
+            <Button x:Name="btnAnnuleer" Grid.Row="5" Style="{StaticResource ButtonStyle}" Command="{Binding AnnuleerCommand}" Content="Wissen"/>
+            <Button x:Name="btnOK" Grid.Column="1" Grid.Row="5" Style="{StaticResource ButtonStyle}" Command="{Binding UpdateCustomerCommand}" Content="Herladen" />
         </Grid>
     </Grid>
 </UserControl>

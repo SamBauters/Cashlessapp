@@ -175,3 +175,6 @@ C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIman
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UImanagement\obj\Debug\View\mAccount.baml
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UImanagement\obj\Debug\View\mAccount.g.cs
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UImanagement\bin\Debug\Cryptography.cs
+C:\Users\sam_b_000\Documents\GitHub\Cashlessapp\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UImanagement\bin\Debug\Cryptography.cs
+C:\Users\sam_b_000\Documents\GitHub\Cashlessapp\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UImanagement\obj\Debug\View\mAccount.g.cs
+C:\Users\sam_b_000\Documents\GitHub\Cashlessapp\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UImanagement\obj\Debug\View\mAccount.baml
