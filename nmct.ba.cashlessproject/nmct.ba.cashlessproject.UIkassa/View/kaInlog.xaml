@@ -5,10 +5,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="700" d:DesignWidth="1200">
-    <UserControl.DataContext>
+             d:DesignHeight="700" d:DesignWidth="1200" Loaded="UserControl_Loaded">
+    <!--<UserControl.DataContext>
         <vm:kaInlogVM/>
-    </UserControl.DataContext>
+    </UserControl.DataContext>-->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -23,9 +23,9 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="80" />
         </Grid.RowDefinitions>
-        <TextBlock x:Name="txbAanmelden" Grid.Column="1" Grid.ColumnSpan="3" Text="Inloggen kassa" Style="{StaticResource TextBlockTitleStyle}" Margin="50,0,428,0" Width="362"/>
+        <TextBlock x:Name="txbAanmelden" Grid.Column="1" Grid.ColumnSpan="3" Text="Inloggen kassa" Style="{StaticResource TextBlockTitleStyle}" Margin="51,0,427,157" Width="362" Grid.RowSpan="2"/>
         <Label Grid.Row="1" VerticalAlignment="Center" Style="{StaticResource LabelStyleLogin}" Margin="276,115,63,23" Grid.ColumnSpan="2" Width="221" Content="MedewerkersID:"  />
-        <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtGebruikerID" Style="{StaticResource TextboxStyle}" Text="{Binding GebruikersID}" Margin="137,123,0,31" Grid.ColumnSpan="2" Height="26"/>
+        <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtGebruikerID" Text="{Binding GebruikersID}" Margin="137,123,0,31" Grid.ColumnSpan="2" Height="26"/>
         <Grid Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="4" Margin="271,0,289,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -50,6 +50,6 @@
             <Button Grid.Column="1" x:Name="btnAcht" Style="{StaticResource ButtonStyle}" Command="{Binding Voeg8ToeCommand}">8</Button>
             <Button Grid.Column="2" x:Name="btnNegen" Style="{StaticResource ButtonStyle}" Command="{Binding Voeg9ToeCommand}">9</Button>
         </Grid>
-        <Button Grid.Row="4" Grid.Column="1" x:Name="btnAanmelden" Style="{StaticResource ButtonStyle}" Command="{Binding AanmeldenCommand}" Margin="121,10,299,10" Grid.ColumnSpan="3">Aanmelden</Button>
+        <Button Grid.Row="4" Grid.Column="1" x:Name="btnAanmelden" Style="{StaticResource ButtonStyle}" Command="{Binding AanmeldenCommand}" Margin="121,10,299,10" Grid.ColumnSpan="3" Content="Inloggen"/>
     </Grid>
 </UserControl>

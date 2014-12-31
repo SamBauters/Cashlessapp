@@ -44,8 +44,7 @@
             <RowDefinition Height="70" />
             <RowDefinition Height="70" />
         </Grid.RowDefinitions>
-        <TextBlock x:Name="txbKlant" Text="Klant" Style="{StaticResource TextBlockTitleStyle}" Margin="10,0,122,0"/>
-        <Button x:Name="btnLeesEID" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource ButtonStyle}" Command="{Binding LoadEidCommand}">Lees kaart</Button>
+        <Button x:Name="btnLeesEID" Style="{StaticResource ButtonStyle}" Command="{Binding LoadEidCommand}" Content="Lees Klantenkaart" Margin="10,10,50,10" />
         <Grid x:Name="grdKlant" Grid.Row="1" Grid.ColumnSpan="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="160" />
@@ -58,10 +57,10 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Image x:Name="imgKlant" Grid.RowSpan="4" Style="{StaticResource ImageStyle}" Source="{Binding Klant.Picture, Converter={StaticResource StringToImageConverter}}"/>
-            <Label x:Name="lblNaam" Grid.Column="1" Style="{StaticResource LabelStyleTotaalLinks}">Naam:</Label>
-            <TextBlock Text="{Binding Klant.CustomerName}" x:Name="txbNaam" Grid.Column="1" Grid.Row="1" Style="{StaticResource TextBlockDetailStyle}" />
-            <Label x:Name="lblBalans" Grid.Column="1" Grid.Row="2"  Style="{StaticResource LabelStyleTotaalLinks}">Balans:</Label>
-            <TextBlock Text="{Binding Klant.Balance}" x:Name="txbSaldo" Grid.Column="1" Grid.Row="3" Style="{StaticResource TextBlockDetailStyle}" />
+            <Label x:Name="lblNaam" Grid.Column="1" Style="{StaticResource LabelStyleTotaalLinks}" Content="Naam:"/>
+            <TextBlock Text="{Binding Klant.CustomerName}" x:Name="txbNaam" Grid.Column="1" Style="{StaticResource TextBlockDetailStyle}" Margin="96,5,7,10" />
+            <Label x:Name="lblBalans" Grid.Column="1" Grid.Row="1"  Style="{StaticResource LabelStyleTotaalLinks}" Margin="10,0,0,1">Balans:</Label>
+            <TextBlock Text="{Binding Klant.Balance}" x:Name="txbSaldo" Grid.Column="1" Grid.Row="1" Style="{StaticResource TextBlockDetailStyle}" Margin="96,6,15,10" />
         </Grid>
         <TextBlock x:Name="txbBestelling" Text="Bestelling" Grid.Row="2" Style="{StaticResource TextBlockTitleStyle}" Margin="10,0,24,0"/>
         <ListView x:Name="lstBestelling" ItemsSource="{Binding Sales}" SelectedItem="{Binding SelectedSale}" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="3" Style="{StaticResource ListboxStyleLinks}">
@@ -75,8 +74,8 @@
             </ListView.View>
         </ListView>
         <Button x:Name="btnVerwijderen" Grid.Row="5" Style="{StaticResource ButtonStyle}" Command="{Binding VerwijderUitLijstCommand}">Verwijderen</Button>
-        <Label Grid.Row="5" Grid.Column="1" Style="{StaticResource LabelStyleTotaal}">Totaal:</Label>
-        <TextBlock Grid.Row="5" Grid.Column="2" Text="{Binding Totaal}" Style="{StaticResource TextBlockStyleTotaal}" />
+        <Label Grid.Row="5" Grid.Column="1" Style="{StaticResource LabelStyleTotaal}" Content="Totaal in euro:" Grid.ColumnSpan="2" Margin="0,14,34,14" Width="166" />
+        <TextBlock Grid.Row="5" Grid.Column="2" Text="{Binding Totaal}" Style="{StaticResource TextBlockStyleTotaal}" Grid.ColumnSpan="2" Margin="79,22,10,22" Width="111" />
         <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" x:Name="icProducten" Style="{StaticResource ListboxStyleRechts}" SelectedItem="{Binding SelectedProduct}" Grid.Column="4" Grid.RowSpan="4" Grid.ColumnSpan="7" ItemsSource="{Binding Products}" ItemsPanel="{StaticResource PanelTemplate}" ItemTemplate="{StaticResource ProductsTemplate}">
         </ListBox>
         <TextBox x:Name="txtProduct" Text="{Binding SelectedProduct.ProductName}" Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" Style="{StaticResource TextboxStyle}" />

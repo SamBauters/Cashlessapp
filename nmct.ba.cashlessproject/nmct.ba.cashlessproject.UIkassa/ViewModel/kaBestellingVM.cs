@@ -191,7 +191,7 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
                 }
                 else
                 {
-                    //MakeErrorLog("Producten konden niet worden opgehaald uit DB.", mname, "GetProducts");
+                    MakeErrorLog("Producten konden niet worden opgehaald uit DB.", mname, "GetProducts");
                 }
             }
         }
@@ -260,7 +260,7 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
                 }
                 else
                 {
-                    //MakeErrorLog("Kassa kon niet worden opgevraagd aan de hand van RegisterID", mname, "GetRegisterByID");
+                    MakeErrorLog("Kassa kon niet worden opgevraagd aan de hand van RegisterID", mname, "GetRegisterByID");
                 }
             }
         } 
@@ -288,7 +288,7 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
             }
             else
             {
-                //MakeErrorLog("Sale uit lijst proberen verwijderen zonder Sale te selecteren", mname, "VerwijderUitLijst");
+                MakeErrorLog("Sale uit lijst proberen verwijderen zonder Sale te selecteren", mname, "VerwijderUitLijst");
             }
                 
             BerekenTotaal();
@@ -314,14 +314,13 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
                         {
                             string sale = JsonConvert.SerializeObject(s);
                             HttpResponseMessage response = await
-                                client.PostAsync("http://localhost:1092/api/Sale", new StringContent(sale,
-                                    Encoding.UTF8, "application/json"));
+                                client.PostAsync("http://localhost:1092/api/Sale", new StringContent(sale,Encoding.UTF8, "application/json"));
                             if (response.IsSuccessStatusCode)
                             {
                             }
                             else
                             {
-                                //MakeErrorLog("Kon Sale niet toevoegen in DB", mname, "InsertIntoDB");
+                                MakeErrorLog("Kon Sale niet toevoegen in DB", mname, "InsertIntoDB");
                             }
                         }
                     }
@@ -331,12 +330,12 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
                 }
                 else
                 {
-                    //MakeErrorLog("Totaal bedrag van bestelling is groter dan saldo van klant.", mname, "InsertIntoDB");
+                    MakeErrorLog("Totaal bedrag van bestelling is groter dan saldo van klant.", mname, "InsertIntoDB");
                 }
             }
             else
             {
-                //MakeErrorLog("Er kan geen lege bestelling toegevoegd worden.", mname, "InsertIntoDB");
+                MakeErrorLog("Er kan geen lege bestelling toegevoegd worden.", mname, "InsertIntoDB");
             }
         }
 
@@ -350,8 +349,7 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
             {
                 string customer = JsonConvert.SerializeObject(c);
                 HttpResponseMessage response = await
-                client.PutAsync("http://localhost:1092/api/Klant", new StringContent(customer,
-                Encoding.UTF8, "application/json"));
+                client.PutAsync("http://localhost:1092/api/Klant", new StringContent(customer, Encoding.UTF8, "application/json"));
                 if (response.IsSuccessStatusCode)
                 {
                     Totaal = 0;
@@ -359,7 +357,7 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
                 }
                 else
                 {
-                    //MakeErrorLog("Kon klant niet updaten", mname, "UpdateCustomer");
+                    MakeErrorLog("Kon klant niet updaten", mname, "UpdateCustomer");
                 }
             }
         }
@@ -393,19 +391,19 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
                     }
                     else
                     {
-                        //MakeErrorLog("Deze versie van de E-ID wordt niet ondersteund", mname, "LoadEid");
+                        MakeErrorLog("Deze versie van de E-ID wordt niet ondersteund", mname, "LoadEid");
                     }
                 }
                 else
                 {
-                    //MakeErrorLog("Er is geen E-ID aanwezig", mname, "LoadEid");
+                    MakeErrorLog("Er is geen E-ID aanwezig", mname, "LoadEid");
                 }
 
                 BEID_ReaderSet.releaseSDK();
             }
             catch (Exception)
             {
-                //MakeErrorLog("Er liep iets fout bij het inlezen van de E-id", mname, "LoadEid");
+                MakeErrorLog("Er liep iets fout bij het inlezen van de E-id", mname, "LoadEid");
             }
         }
 
@@ -433,12 +431,12 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
                     }
                     else
                     {
-                        //MakeErrorLog("Klant moet zich nog registreren", mname, "GetCustomer");
+                        MakeErrorLog("Klant moet zich nog registreren", mname, "GetCustomer");
                     }
                 }
                 else
                 {
-                    //MakeErrorLog("Er liep iets fout bij het ophalen van de klant uit de DB", mname, "GetCustomer");
+                    MakeErrorLog("Er liep iets fout bij het ophalen van de klant uit de DB", mname, "GetCustomer");
                 }
             }
         }
@@ -453,12 +451,12 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
                 if (Totaal > Klant.Balance)
                 {
                     MessageBox.Show("Totale prijs is groter dan saldo van de klant. Overschrijding van het saldo is € " + overschrijding + ". Gelieve iets te verwijderen uit de bestelling.", " " ,MessageBoxButton.OK, MessageBoxImage.Warning);
-                    //MakeErrorLog("Klant " + Klant.CustomerName + " overschreed zijn/haar huidig saldo met € " + overschrijding, mname, "ControleerPrijs");
+                    MakeErrorLog("Klant " + Klant.CustomerName + " overschreed zijn/haar huidig saldo met € " + overschrijding, mname, "ControleerPrijs");
                 }
             }
             else
             {
-                //MakeErrorLog("Geen E-ID aanwezig.", mname, "ControleerPrijs");
+                MakeErrorLog("Geen E-ID aanwezig.", mname, "ControleerPrijs");
             }
 
         }
@@ -482,8 +480,7 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
             {
                 string registeremployee = JsonConvert.SerializeObject(re);
                 HttpResponseMessage response = await
-                    client.PostAsync("http://localhost:13266/api/RegisterEmployee", new StringContent(registeremployee,
-                        Encoding.UTF8, "application/json"));
+                    client.PostAsync("http://localhost:1092/api/RegisterEmployee", new StringContent(registeremployee, Encoding.UTF8, "application/json"));
                 if (response.IsSuccessStatusCode)
                 {
                     ApplicationVM appvm = App.Current.MainWindow.DataContext as ApplicationVM;
@@ -491,13 +488,13 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
                 }
                 else
                 {
-                    //MakeErrorLog("Kon Register_Employee niet toevoegen in DB", mname, "InsertRegisterEmployeeIntoDB");
+                    MakeErrorLog("Kon Register_Employee niet toevoegen in DB", mname, "InsertRegisterEmployeeIntoDB");
                 }
             }
         }
 
         //Errorlog aanmaken
-        /*private void MakeErrorLog(string message, string classStackTrace, string methodStackTrace)
+        private void MakeErrorLog(string message, string classStackTrace, string methodStackTrace)
         {
             Errorlog errorLog = new Errorlog();
             errorLog.RegisterID = registerID;
@@ -515,14 +512,14 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
             {
                 string errorlog = JsonConvert.SerializeObject(e);
                 HttpResponseMessage response = await
-                    client.PostAsync("http://localhost:13266/api/Errorlog", new StringContent(errorlog,
+                    client.PostAsync("http://localhost:1092/api/Errorlog", new StringContent(errorlog,
                         Encoding.UTF8, "application/json"));
                 if (response.IsSuccessStatusCode)
                 {
                     Console.WriteLine("Error added.");
                 }
             }
-        }*/
+        }
 
         //DateTime convert to UnixTimeStamp
         private static int DateTimeToUnixTimeStamp(DateTime t)
