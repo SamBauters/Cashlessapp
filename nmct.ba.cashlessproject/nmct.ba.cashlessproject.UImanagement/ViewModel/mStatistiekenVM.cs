@@ -211,7 +211,7 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
             ShowSales = new ObservableCollection<Sales>();
             DateTime standardDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
 
-            if (VanChanged && TotChanged == true && SelectedRegister != null && SelectedRegister.ID > 0 && SelectedProduct != null && SelectedProduct.ID > 0)
+            if (VanChanged == true && TotChanged == true && SelectedRegister != null && SelectedRegister.ID > 0 && SelectedProduct != null && SelectedProduct.ID > 0)
             {
                 foreach (Sales s in Sales)
                 {
@@ -220,7 +220,7 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
                 }
             }
 
-            if (VanChanged && TotChanged == true && SelectedRegister != null && SelectedRegister.ID > 0 && (SelectedProduct == null || SelectedProduct.ID == 0))
+            if (VanChanged == true && TotChanged == true && SelectedRegister != null && SelectedRegister.ID > 0 && (SelectedProduct == null || SelectedProduct.ID == 0))
             {
                 foreach (Sales s in Sales)
                 {
@@ -229,7 +229,7 @@ namespace nmct.ba.cashlessproject.UImanagement.ViewModel
                 }
             }
 
-            if (VanChanged && TotChanged == true && (SelectedRegister == null || SelectedRegister.ID == 0) && SelectedProduct != null && SelectedProduct.ID > 0)
+            if (VanChanged == true && TotChanged == true && (SelectedRegister == null || SelectedRegister.ID == 0) && SelectedProduct != null && SelectedProduct.ID > 0)
             {
                 foreach (Sales s in Sales)
                 {

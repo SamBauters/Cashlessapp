@@ -3,17 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="View\MainWindow.xaml">
     <Application.Resources>
-        <!-- COLORS -->
-        <SolidColorBrush x:Key="ButtonActiveColor" Color="LightSkyBlue" />
-        <!-- STANDARD STYLE -->
         <Style x:Key="StandardStyle" TargetType="Control">
             <Setter Property="FontSize" Value="22" />
             <Setter Property="VerticalAlignment" Value="Stretch" />
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="Margin" Value="10" />
         </Style>
-        <!-- STYLES -->
-        <!-- textblock -->
+
+        
         <Style x:Key="TextBlockTitleStyle" TargetType="TextBlock">
             <Setter Property="FontSize" Value="48" />
             <Setter Property="VerticalAlignment" Value="Bottom" />
@@ -41,7 +38,6 @@
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="Margin" Value="7" />
         </Style>
-        <!-- label-->
         <Style x:Key="LabelStyleLogin" BasedOn="{StaticResource StandardStyle}" TargetType="Label">
             <Setter Property="FontSize" Value="24" />
             <Setter Property="VerticalAlignment" Value="Center" />

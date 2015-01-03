@@ -428,7 +428,7 @@ namespace nmct.ba.cashlessproject.UIkassa.ViewModel
 
                 if (Totaal > Klant.Balance)
                 {
-                    MessageBox.Show("Totale prijs is groter dan saldo van de klant. Overschrijding van het saldo is € " + overschrijding + ". Gelieve iets te verwijderen uit de bestelling.", " " ,MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("Overschrijding van het saldo met € " + overschrijding + ". Gelieve iets te verwijderen uit de bestelling.", " " ,MessageBoxButton.OK, MessageBoxImage.Warning);
                     MakeErrorLog("Klant " + Klant.CustomerName + " overschreed zijn/haar huidig saldo met € " + overschrijding, mname, "ControleerPrijs");
                 }
             }

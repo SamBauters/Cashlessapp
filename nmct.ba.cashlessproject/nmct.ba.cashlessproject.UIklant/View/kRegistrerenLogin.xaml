@@ -33,7 +33,7 @@
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
         <TextBlock x:Name="txbLogin" Grid.Row="0" Grid.Column="2" Text="LOG IN MET JE E-ID" Margin="122,30,70,27" Grid.ColumnSpan="2" Style="{StaticResource TextBlockStyle}" RenderTransformOrigin="0.5,0.5" Height="23"/>
-        <TextBlock x:Name="txbInfo" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="1" Style="{StaticResource TextBlockStyle}" Text="Registreren en inloggen gaat automatisch" Margin="0,34,0,27" />
+        <TextBlock x:Name="txbInfo" Grid.Row="1" Grid.ColumnSpan="4" Grid.Column="1" Style="{StaticResource TextBlockStyle}" Text="Wanneer je nog geen account hebt wordt deze onmiddelijk aangemaakt. " Margin="0,34,10,10" Height="36" />
         <Image x:Name="imgIdentiteitskaart" Grid.RowSpan="3" Grid.Row="2" Grid.Column="4" Style="{StaticResource ImageStyle}" Margin="10,5,0,5" Source="{Binding Klant.Picture, Converter={StaticResource StringToImageConverter}}"/>
         <TextBlock x:Name="txbVoornaam" Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBlockStyle}" Margin="0,21,0,20">Voornaam:</TextBlock>
         <TextBox x:Name="txtVoornaam" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Voornaam}" Height="25" Margin="0,18,0,17"/>
@@ -43,7 +43,7 @@
         <TextBox x:Name="txtStraat" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Adres}" Height="25" Margin="0,18,0,17"/>
         <TextBlock x:Name="lblStad" Grid.Row="5" Grid.Column="1" Style="{StaticResource TextBlockStyle}" Margin="0,21,0,20">Stad:</TextBlock>
         <TextBox x:Name="txtStad" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Stad}" Height="25" Margin="0,18,0,17"/>
-        <Button x:Name="btnLeesKaartRegistreren" Grid.Row="6" Grid.Column="2" Style="{StaticResource ButtonStyle}" Command="{Binding LoadEidCommand}" Margin="10,10,10,139" Content="Lees EID" />
-        <Button x:Name="btnInloggen" Grid.Row="6" Grid.Column="3" Style="{StaticResource ButtonStyle}" Command="{Binding LogInCommand}" CommandParameter="{Binding ElementName=RegisterLogin}" Margin="10,10,10,139" Content="Inloggen" />
+        <Button x:Name="btnLeesKaartRegistreren" Grid.Row="6" Grid.Column="2" Command="{Binding LoadEidCommand}" Margin="10,10,10,139" Content="Lees EID" />
+        <Button x:Name="btnInloggen" Grid.Row="6" Grid.Column="3" Command="{Binding LogInCommand}" CommandParameter="{Binding ElementName=RegisterLogin}" Margin="10,10,10,139" Content="Inloggen" />
     </Grid>
 </UserControl>

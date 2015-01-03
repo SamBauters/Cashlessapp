@@ -144,7 +144,6 @@ C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIkla
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIklant\obj\Debug\nmct.ba.cashlessproject.UIklant.csproj.GenerateResource.Cache
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIklant\obj\Debug\nmct.ba.cashlessproject.UIklant.exe
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIklant\obj\Debug\nmct.ba.cashlessproject.UIklant.pdb
-C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIklant\obj\Debug\App.baml
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIklant\obj\Debug\View\kRegistrerenLogin.g.cs
 C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIklant\obj\Debug\View\kRegistrerenLogin.baml
 C:\Users\sam_b_000\Documents\GitHub\Cashlessapp\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIklant\bin\Debug\AForge.Controls.dll
@@ -164,3 +163,4 @@ C:\Users\sam_b_000\Documents\GitHub\Cashlessapp\nmct.ba.cashlessproject\nmct.ba.
 C:\Users\sam_b_000\Documents\GitHub\Cashlessapp\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIklant\obj\Debug\App.baml
 C:\Users\sam_b_000\Documents\GitHub\Cashlessapp\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIklant\obj\Debug\View\kRegistrerenLogin.g.cs
 C:\Users\sam_b_000\Documents\GitHub\Cashlessapp\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIklant\obj\Debug\View\kRegistrerenLogin.baml
+C:\Users\sam_b_000\Desktop\nmct.ba.cashlessproject\nmct.ba.cashlessproject.UIklant\obj\Debug\App.baml
